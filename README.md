@@ -1,11 +1,11 @@
 Project 3
 
 Collaborators:
-Josh Edgell,
-Tiffany Monroe,
-Nicholas Vogt
+Josh Edgell (EST)
+Tiffany Monroe (PST)
+Nicholas Vogt (EST)
 
-Group Standard Practices
+Group Norms
 *NEVER WORK ON DEV BRANCH*
 *NEVER, EVER PUSH TO MASTER*
 Pull from dev or merge to dev (on github), but never work on dev
@@ -21,4 +21,4 @@ PULLING FROM GIT
 5. partner merges to dev
 
 
-Do we have a merge?
+TRELLO
