@@ -19,3 +19,6 @@ PULLING FROM GIT
 3. git push origin newbranch
 4. partner reviews changes
 5. partner merges to dev
+
+
+Do we have a merge?
