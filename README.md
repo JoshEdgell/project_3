@@ -20,4 +20,5 @@ PULLING FROM GIT
 4. partner reviews changes
 5. partner merges to dev
 
+
 TRELLO
