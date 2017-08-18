@@ -23,4 +23,5 @@ mongoose.connection.once('open', ()=>{
 
 app.listen(3000, ()=>{
   console.log("What was a more important invention than the telephone?  The second one.")
+  console.log('==================PORT 3000=============================')
 })
