@@ -3,4 +3,5 @@ Project 3
 Collaborators:
 
 Josh Edgell, 
-Tiffany Monroe
+Tiffany Monroe,
+Nicholas Vogt
