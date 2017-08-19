@@ -1,4 +1,3 @@
-
 const app = angular.module('DadJokes', []);
 
 app.controller('MainController', ['$http', function($http){
@@ -15,6 +14,7 @@ app.controller('MainController', ['$http', function($http){
     }).then(
       function(res){
         controller.jokes = res.data;
+        //make jokes random
         console.log(controller.jokes);
       },
       function(err){
