@@ -13,21 +13,23 @@
     <h1><b>The Dad Joke Factory</b></h1>
     <h3>Your Source of Fatherly Comedy</h3>
 
+
     <!-- insert create "search" box here -->
 
     <form submit="ctrl.createJoke()">
+
       <!-- insert "create" box here -->
     </form>
     <section ng-submit=""> <!--not sure what submit this is for -->
       <ul>
-        <li ng-repeat="joke in ctrl.jokes">
-          <span>{{jokeText}}</span></br>
-          <!-- The <a> with 'Edit' will use something like 'ctrl.update = $index' -->
-          <a href="#" ng-click="ctrl.update = $index">Edit</a>
-          <button ng-click="ctrl.deleteJoke(joke)">Delete</button>
+
+        <li ng-repeat="oneJoke in ctrl.jokes">
+          <span>{{oneJoke}}</span></br>
+          <a href="#" ng-click="ctrl.updateJoke(oneJoke) = $index">Edit</a>
+          <button ng-click="ctrl.deleteJoke(oneJoke)">Delete</button>
           <!-- The below form is activated by the above 'Edit' button -->
-          <form ng-if="$index === ctrl.update" ng-submit="ctrl.updateJoke(joke)">
-            <input type="text" ng-model="ctrl.jokeText" /></br>
+          <form ng-if="$index === ctrl.seeEditForm" ng-submit="ctrl.updateJoke(oneJoke)">
+            <input type="text" ng-model="" /></br>
             <input type="submit" value="Update" />
           </form>
         </li>
