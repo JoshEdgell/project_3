@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 
 //Routers
 const dadJokeController = require('./controllers/dadjokes.js');
+app.use('/dadjokes', dadJokeController);
 
 app.get('/', (req,res)=>{
   res.render(index.html);
