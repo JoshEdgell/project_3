@@ -4,7 +4,7 @@ app.controller('MainController', ['$http', function($http){
   const controller = this;
   this.jokes = []; //all dad jokes
   this.favorites = []; //push to for registered users favorites list
-  this.edit = 1; //can't remember why we set it to 1.
+  this.update = 1; //can't remember why we set it to 1.
 
   //function to request dad jokes
   this.getJokes = function(){
@@ -30,7 +30,7 @@ app.controller('MainController', ['$http', function($http){
       url: '/jokes',
       data: {
         user: this.user,
-        joke: this.joke
+        jokeText: this.jokeText
       }
     }).then(
         function(res){
@@ -49,7 +49,7 @@ app.controller('MainController', ['$http', function($http){
       url: '/jokes/' + joke._id,
       data: {
         user: joke.user,
-        joke: this.updatedJoke
+        jokeText: this.updatedJoke
       }
     }).then(
       function(res){
