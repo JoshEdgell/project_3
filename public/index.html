@@ -11,11 +11,23 @@
     <h1><b>The Dad Joke Factory</b></h1>
     <h3>Your Source of Fatherly Comedy</h3>
     <!-- insert create "search" box here -->
-    <form>
+    <form submit="">
       <!-- insert "create" box here -->
     </form>
-    <section>
-      <!-- insert joke(s) box here -->
+    <section ng-submit="">
+      <ul>
+        <li ng-repeat="">
+          <span>{{joke goes here}}</span></br>
+          <!-- The <a> with 'Edit' will use something like 'ctrl.indexOfEditFormToShow = $index' -->
+          <a href="#" ng-click="">Edit</a>
+          <button ng-click="">Delete</button>
+          <!-- The below form is activated by the above 'Edit' button -->
+          <form ng-if="" ng-submit="">
+            <input type="text" ng-model="" /></br>
+            <input type="submit" value="Update" />
+          </form>
+        </li>
+      </ul>
     </section>
   </body>
 </html>
