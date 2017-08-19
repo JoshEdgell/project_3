@@ -21,8 +21,7 @@ app.controller('MainController', ['$http', function($http){
         console.log('getJokes error is: ', err);
       }
     );
-  },
-
+  };
   //request to create jokes
   this.createJoke = function(){
     $http({
@@ -40,7 +39,7 @@ app.controller('MainController', ['$http', function($http){
           console.log('createJoke error is: ', err);
         }
     );
-  }
+  };
 
   //request to upddate jokes
   this.updateJoke = function(joke){
@@ -59,7 +58,7 @@ app.controller('MainController', ['$http', function($http){
         console.log('updateJoke error is: ', err);
       }
     );
-  },
+  };
 
   //request to delete jokes
   this.deleteJoke = function(joke){
@@ -74,7 +73,7 @@ app.controller('MainController', ['$http', function($http){
         console.log('deleteJoke error is: ', err);
       }
     )
-  }
+  };
 
     this.getJokes(); //callback to get jokes on page load
 
