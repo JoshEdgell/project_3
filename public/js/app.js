@@ -16,7 +16,6 @@ app.controller('MainController', ['$http', function($http){
     }).then(
       function(res){
         controller.jokes = res.data;
-        //make jokes random
         console.log(controller.jokes);
       },
       function(err){
@@ -24,6 +23,24 @@ app.controller('MainController', ['$http', function($http){
       }
     );
   };
+
+  //search jokes
+  this.searchJokes = function(){
+    $http({
+      method: 'get',
+      url: 'https://icanhazdadjoke.com/search',
+      headers: {'Accept': 'application/json'}
+    }).then(
+      function(res){
+        controller.search = res.data;
+        console.log(controller.search);
+      },
+      function(err){
+        console.log('searchJokes error is: ', err);
+      }
+    );
+  };
+
   //request to create jokes
   this.createJoke = function(){
     $http({

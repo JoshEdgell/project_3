@@ -24,7 +24,7 @@
     <section ng-submit=""> <!--not sure what submit this is for -->
       <ul>
 
-        <li ng-repeat="oneJoke in ctrl.jokes">
+        <li ng-repeat="oneJoke in ctrl.search"> <!--we're going to have to change ng-repeat because we only get 1 joke back from the getJokes function. The search might be an option and/or user lists-->
           <span>{{oneJoke}}</span></br>
           <a href="#" ng-click="ctrl.updateJoke(oneJoke) = $index">Edit</a>
           <button ng-click="ctrl.deleteJoke(oneJoke)">Delete</button>
