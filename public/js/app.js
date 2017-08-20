@@ -7,10 +7,12 @@ app.controller('MainController', ['$http', function($http){
   this.update = 1; //can't remember why we set it to 1.
 
   //function to request dad jokes
+
   this.getJokes = function(){
     $http({
       method: 'get',
-      url: '/jokes'
+      url: 'https://icanhazdadjoke.com/',
+      headers: {'Accept': 'application/json'}
     }).then(
       function(res){
         controller.jokes = res.data;
