@@ -7,14 +7,15 @@ app.controller('MainController', ['$http', function($http){
   this.update = 1; //can't remember why we set it to 1.
 
   //function to request dad jokes
+
   this.getJokes = function(){
     $http({
       method: 'get',
-      url: '/jokes'
+      url: 'https://icanhazdadjoke.com/',
+      headers: {'Accept': 'application/json'}
     }).then(
       function(res){
         controller.jokes = res.data;
-        //make jokes random
         console.log(controller.jokes);
       },
       function(err){
@@ -22,14 +23,31 @@ app.controller('MainController', ['$http', function($http){
       }
     );
   };
+
+  //search jokes
+  this.searchJokes = function(){
+    $http({
+      method: 'get',
+      url: 'https://icanhazdadjoke.com/search',
+      headers: {'Accept': 'application/json'}
+    }).then(
+      function(res){
+        controller.search = res.data;
+        console.log(controller.search);
+      },
+      function(err){
+        console.log('searchJokes error is: ', err);
+      }
+    );
+  };
+
   //request to create jokes
   this.createJoke = function(){
     $http({
       method: 'post',
       url: '/jokes',
       data: {
-        user: this.user,
-        jokeText: this.jokeText
+        joke: this.joke
       }
     }).then(
         function(res){
@@ -48,7 +66,7 @@ app.controller('MainController', ['$http', function($http){
       url: '/jokes/' + joke._id,
       data: {
         user: joke.user,
-        jokeText: this.updatedJoke
+        joke: this.updatedJoke
       }
     }).then(
       function(res){
