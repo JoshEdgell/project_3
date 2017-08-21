@@ -22,6 +22,8 @@ const dadJokeController = require('./controllers/dadjokes.js');
 app.use('/jokes', dadJokeController);
 const userController = require('./controllers/users.js');
 app.use('/users', userController);
+const sessionController = require('./controllers/session.js');
+app.use('/session', sessionController);
 
 app.get('/', (req,res)=>{
   res.render(index.html);

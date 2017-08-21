@@ -31,7 +31,6 @@ router.post('/register',(req,res)=>{
       User.create(userDbEntry, (error,user)=>{
         req.session.username = user.username;
         req.session.logged = true;
-        console.log('new user created?');
         res.redirect('/');
       })
   }
