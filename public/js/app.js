@@ -15,18 +15,36 @@ app.controller('MainController', ['$http', function($http){
   this.getJokes = function(){
     $http({
       method: 'get',
-      url: 'https://icanhazdadjoke.com'
+      url: 'https://icanhazdadjoke.com/',
+      headers: {'Accept':'application/json'}
     }).then(
       function(res){
         controller.jokes = res.data;
-        //make jokes random
-        console.log(res.data, "response");
+        console.log(controller.jokes);
       },
       function(err){
         console.log('getJokes error is: ', err);
       }
     );
   };
+
+  //search jokes
+ this.searchJokes = function(){
+   $http({
+     method: 'get',
+     url: 'https://icanhazdadjoke.com/search',
+     headers: {'Accept': 'application/json'}
+   }).then(
+     function(res){
+       controller.search = res.data;
+       console.log(controller.search);
+     },
+     function(err){
+       console.log('searchJokes error is: ', err);
+     }
+   );
+ };
+ 
   //request to create jokes
   this.createJoke = function(){
     $http({
