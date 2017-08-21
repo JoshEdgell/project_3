@@ -5,6 +5,8 @@ app.controller('MainController', ['$http', function($http){
   this.jokes = []; //all dad jokes
   this.favorites = []; //push to for registered users favorites list
   this.update = 1; //can't remember why we set it to 1.
+  this.jokeToUpdate = {};
+  this.seeEditForm = false;
   this.jokeText = ''; //New joke text
   this.jokeCount = ''; //Counts all jokes in our database
   this.allJokes = [];
@@ -37,6 +39,7 @@ app.controller('MainController', ['$http', function($http){
     }).then(
         function(res){
           controller.countJokes();
+          controller.getAllJokes();
           controller.jokeText = '';
         },
         function(err){
@@ -68,7 +71,7 @@ app.controller('MainController', ['$http', function($http){
     })
   };
 
-  //request to upddate jokes
+  //request to update jokes
   this.updateJoke = function(joke){
     $http({
       method: 'put',
@@ -88,18 +91,39 @@ app.controller('MainController', ['$http', function($http){
   };
 
   //request to delete jokes
-  this.deleteJoke = function(joke){
+  this.deleteJoke = function(id){
     $http({
       method: 'delete',
-      url: '/jokes/' + joke._id
+      url: '/jokes/' + id
     }).then(
       function(res){
-        controller.getJokes();
+        controller.countJokes();
+        controller.getAllJokes();
       },
       function(err){
         console.log('deleteJoke error is: ', err);
       }
     )
+  };
+  this.toggleEditForm = function(){
+    console.log('trying to toggle');
+    this.seeEditForm = !this.seeEditForm;
+  };
+  this.alternateEditStart = function(joke){
+    this.jokeToUpdate = joke;
+  };
+  this.alternateEdit = function(id){
+    $http({
+      method: 'PUT',
+      url: '/jokes/' + id,
+      data: this.jokeToUpdate
+    }).then(function(response){
+      console.log('response received');
+      controller.getAllJokes;
+      controller.jokeToUpdate = {};
+    }, function(error){
+      console.log(error, 'error');
+    })
   };
 
     // this.getJokes(); //callback to get jokes on page load

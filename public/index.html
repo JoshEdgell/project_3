@@ -29,25 +29,35 @@
     We have {{ctrl.jokeCount}} jokes to choose from!
     <!---------------------->
 
-    <ul>
-      <li ng-repeat="item in ctrl.allJokes">{{item.joke}}</li>
-    </ul>
 
 
-    <section ng-submit=""> <!--not sure what submit this is for -->
+
+    <!-- <section ng-submit=""> <!-not sure what submit this is for -->
       <ul>
-
-        <li ng-repeat="oneJoke in ctrl.jokes">
-          <span>{{oneJoke}}</span></br>
-          <a href="#" ng-click="ctrl.updateJoke(oneJoke) = $index">Edit</a>
-          <button ng-click="ctrl.deleteJoke(oneJoke)">Delete</button>
+        <li ng-repeat="oneJoke in ctrl.allJokes">
+          {{oneJoke.joke}}
+          <button ng-click="ctrl.toggleEditForm();">Edit</button>
+          <button ng-click="ctrl.deleteJoke(oneJoke._id)">Delete</button>
           <!-- The below form is activated by the above 'Edit' button -->
-          <form ng-if="$index === ctrl.seeEditForm" ng-submit="ctrl.updateJoke(oneJoke)">
+          <form ng-if="ctrl.seeEditForm" ng-submit="ctrl.updateJoke(oneJoke)">
             <input type="text" ng-model="" /></br>
             <input type="submit" value="Update" />
           </form>
         </li>
       </ul>
-    </section>
+    <!-- </section> -->
+
+
+    <h4>Alternate Edit Option - Work In Progress</h4>
+    <form>
+      <textarea ng-model="ctrl.jokeToUpdate.joke"></textarea>
+      <button ng-click="ctrl.alternateEdit(ctrl.jokeToUpdate._id);">Edit</button>
+    </form>
+    <ul>
+      <li ng-repeat="oneJoke in ctrl.allJokes">
+        {{oneJoke.joke}}
+        <button ng-click="ctrl.alternateEditStart(oneJoke);">Edit</button>
+      </li>
+    </ul>
   </body>
 </html>

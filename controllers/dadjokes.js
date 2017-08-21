@@ -33,13 +33,13 @@ router.post('/', (req,res)=>{
 
 //Edit joke (have to check)
 router.put('/:id', (req,res)=>{
-  jokes.findByIdAndUpdate(req.params.id, req.body, { new : true }, (error,updateJoke)=>{
-    res.json(updateJoke);
+  jokes.findByIdAndUpdate(req.params.id, req.body, { new : true }, (err,update)=>{
+    res.json(update);
   })
-});
+})
 
-//Delete joke (have to check)
-router.delete(':/id', (req,res)=>{
+//Delete joke
+router.delete('/:id', (req,res)=>{
   jokes.findByIdAndRemove(req.params.id, (error, deletedJoke)=>{
     res.json(deletedJoke);
   })
