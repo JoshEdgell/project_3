@@ -29,6 +29,10 @@
     We have {{ctrl.jokeCount}} jokes to choose from!
     <!---------------------->
 
+    <ul>
+      <li ng-repeat="item in ctrl.allJokes">{{item.joke}}</li>
+    </ul>
+
 
     <section ng-submit=""> <!--not sure what submit this is for -->
       <ul>

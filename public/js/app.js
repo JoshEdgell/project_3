@@ -62,7 +62,7 @@ app.controller('MainController', ['$http', function($http){
       method: 'get',
       url: '/jokes/listall'
     }).then(function(response){
-      console.log(response.data);
+      controller.allJokes = response.data;
     }, function(error){
       console.log(error);
     })
