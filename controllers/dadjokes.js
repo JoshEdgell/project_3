@@ -4,12 +4,13 @@ const jokes         = require('../models/dadjokes.js');
 
 //Count the number of dad jokes
 router.get('/count', (req,res)=>{
+  console.log('request received');
   jokes.count(function(error, count) {
     res.send(count.toString());
   });
 });
 
-//List of all dad jokes (have to check)
+//List of all dad jokes
 router.get('/listall', (req,res)=>{
   jokes.find({}, (error, jokes)=>{
     res.json(jokes);
@@ -23,7 +24,7 @@ router.get('/:id', (req,res)=>{
   })
 });
 
-//New Joke (have to check)
+//New Joke
 router.post('/', (req,res)=>{
   jokes.create(req.body, (error, newJoke)=>{
     res.json(newJoke);
@@ -32,13 +33,13 @@ router.post('/', (req,res)=>{
 
 //Edit joke (have to check)
 router.put('/:id', (req,res)=>{
-  jokes.findByIdAndUpdate(req.params.id, req.body, { new : true }, (error,updateJoke)=>{
-    res.json(updateJoke);
+  jokes.findByIdAndUpdate(req.params.id, req.body, { new : true }, (err,update)=>{
+    res.json(update);
   })
-});
+})
 
-//Delete joke (have to check)
-router.delete(':/id', (req,res)=>{
+//Delete joke
+router.delete('/:id', (req,res)=>{
   jokes.findByIdAndRemove(req.params.id, (error, deletedJoke)=>{
     res.json(deletedJoke);
   })
