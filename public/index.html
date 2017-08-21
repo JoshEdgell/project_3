@@ -17,6 +17,7 @@
     {{ctrl.jokes.id}}
     <!-- insert create "search" box here -->
 
+
       <!-- CREATE A NEW JOKE-->
       Create a new joke:
       <form ng-submit="ctrl.createJoke()">
@@ -36,7 +37,7 @@
 
     <!-- <section ng-submit=""> <!-not sure what submit this is for -->
       <ul>
-        <li ng-repeat="oneJoke in ctrl.allJokes">
+        <li ng-repeat="oneJoke in ctrl.allJokes | filter: searchBox">
           {{oneJoke.joke}}
           <button ng-click="ctrl.toggleEditForm();">Edit</button>
           <button ng-click="ctrl.deleteJoke(oneJoke._id)">Delete</button>
