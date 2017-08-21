@@ -90,19 +90,24 @@ app.controller('MainController', ['$http', function($http){
   };
 
   //request to delete jokes
-  this.deleteJoke = function(joke){
+  this.deleteJoke = function(id){
     $http({
       method: 'delete',
-      url: '/jokes/' + joke._id
+      url: '/jokes/' + id
     }).then(
       function(res){
-        controller.getJokes();
+        console.log(res);
+        controller.getAllJokes();
       },
       function(err){
         console.log('deleteJoke error is: ', err);
       }
     )
   };
+  this.toggleEditForm = function(){
+    console.log('trying to toggle');
+    this.seeEditForm = !this.seeEditForm;
+  }
 
     // this.getJokes(); //callback to get jokes on page load
   this.countJokes();

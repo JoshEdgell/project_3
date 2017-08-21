@@ -39,7 +39,7 @@ router.put('/:id', (req,res)=>{
 });
 
 //Delete joke (have to check)
-router.delete(':/id', (req,res)=>{
+router.delete('/:id', (req,res)=>{
   jokes.findByIdAndRemove(req.params.id, (error, deletedJoke)=>{
     res.json(deletedJoke);
   })

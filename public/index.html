@@ -36,8 +36,8 @@
       <ul>
         <li ng-repeat="oneJoke in ctrl.allJokes">
           {{oneJoke.joke}}
-          <a href="#" ng-click="ctrl.updateJoke(oneJoke) = $index">Edit</a>
-          <button ng-click="ctrl.deleteJoke(oneJoke)">Delete</button>
+          <button ng-click="ctrl.toggleEditForm();">Edit</button>
+          <button ng-click="ctrl.deleteJoke(oneJoke._id)">Delete</button>
           <!-- The below form is activated by the above 'Edit' button -->
           <form ng-if="ctrl.seeEditForm" ng-submit="ctrl.updateJoke(oneJoke)">
             <input type="text" ng-model="" /></br>
