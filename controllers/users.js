@@ -28,11 +28,11 @@ const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 const userDbEntry = {};
 userDbEntry.firstName = req.body.firstName;
 userDbEntry.lastName = req.body.lastName;
-userDbEntry.username = req.body.username;
+userDbEntry.userName = req.body.username;
 userDbEntry.password = passwordHash;
 console.log(userDbEntry);
 User.create(userDbEntry, (err,user)=>{
-  req.session.username = user.username;
+  req.session.username = user.userName;
   req.session.logged = true;
   res.redirect('/');
 })
