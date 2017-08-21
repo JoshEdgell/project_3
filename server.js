@@ -11,6 +11,8 @@ app.use(bodyParser.json());
 //Routers
 const dadJokeController = require('./controllers/dadjokes.js');
 app.use('/jokes', dadJokeController);
+const userController = require('./controllers/users.js');
+app.use('/users', userController);
 
 app.get('/', (req,res)=>{
   res.render(index.html);
