@@ -44,7 +44,7 @@ app.controller('MainController', ['$http', function($http){
      }
    );
  };
- 
+
   //request to create jokes
   this.createJoke = function(){
     $http({
@@ -144,7 +144,7 @@ app.controller('MainController', ['$http', function($http){
     })
   };
 
-    // this.getJokes(); //callback to get jokes on page load
+  this.getJokes(); //callback to get jokes on page load
   this.countJokes();
   this.getAllJokes();
 }]); //end of controller
