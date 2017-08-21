@@ -13,7 +13,8 @@ router.get('/register', (req,res)=>{
     passwordFail: false
   });
 });
-//Create new user (have to check)
+
+//New User Post Route (have to check)
 router.post('/register',(req,res)=>{
   if (req.body.password != req.body.password2){
     res.render('sessions/register.ejs', {
@@ -35,6 +36,48 @@ router.post('/register',(req,res)=>{
         res.redirect('/');
       })
   }
+});
+
+//Log in
+router.get('/login', (req,res)=>{
+  res.render('sessions/login.ejs', {
+    passwordFail: false
+  });
+})
+
+//Check Login information
+router.post('/login', (req,res)=>{
+  User.findOne({userName : req.body.userName }, (error,foundUser)=>{
+    if(foundUser){
+      if(bcrypt.compareSync(req.body.password, foundUser.password)){
+        req.session.username = req.body.username;
+        req.session.logged = true;
+        console.log('logged in');
+        res.redirect('/');
+      } else {
+        res.render('sessions/login.ejs', {
+          passwordFail: true
+        })
+      }
+    } else {
+      res.render('sessions/login.ejs', {
+        passwordFail: true
+      })
+    }
+  })
+});
+
+
+//Log out (have to check)
+router.get('/logout',(req,res)=>{
+  req.session.destroy((error)=>{
+    if(error){
+      console.log(error);
+    } else {
+      console.log('logged out');
+      res.redirect('/');
+    }
+  })
 });
 
 //View individual user page (have to check)
