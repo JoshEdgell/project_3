@@ -6,7 +6,8 @@ app.controller('MainController', ['$http', function($http){
   this.favorites = []; //push to for registered users favorites list
   this.update = 1; //can't remember why we set it to 1.
   this.jokeText = ''; //New joke text
-  this.jokeCount = '';
+  this.jokeCount = ''; //Counts all jokes in our database
+  this.allJokes = [];
 
   //function to request one dad joke from API
   this.getJokes = function(){
@@ -31,7 +32,7 @@ app.controller('MainController', ['$http', function($http){
       url: '/jokes',
       data: {
         // user: this.user,
-        jokeText: this.jokeText
+        joke: this.jokeText
       }
     }).then(
         function(res){
@@ -54,6 +55,17 @@ app.controller('MainController', ['$http', function($http){
     }, function(error){
         console.log(error);
     });
+  };
+  //Request to get all jokes in our database
+  this.getAllJokes = function(){
+    $http({
+      method: 'get',
+      url: '/jokes/listall'
+    }).then(function(response){
+      console.log(response.data);
+    }, function(error){
+      console.log(error);
+    })
   };
 
   //request to upddate jokes
@@ -92,4 +104,5 @@ app.controller('MainController', ['$http', function($http){
 
     // this.getJokes(); //callback to get jokes on page load
   this.countJokes();
+  this.getAllJokes();
 }]); //end of controller

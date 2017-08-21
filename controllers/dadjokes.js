@@ -10,7 +10,7 @@ router.get('/count', (req,res)=>{
   });
 });
 
-//List of all dad jokes (have to check)
+//List of all dad jokes
 router.get('/listall', (req,res)=>{
   jokes.find({}, (error, jokes)=>{
     res.json(jokes);
@@ -24,7 +24,7 @@ router.get('/:id', (req,res)=>{
   })
 });
 
-//New Joke (have to check)
+//New Joke
 router.post('/', (req,res)=>{
   jokes.create(req.body, (error, newJoke)=>{
     res.json(newJoke);
