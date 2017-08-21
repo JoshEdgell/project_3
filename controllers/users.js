@@ -3,6 +3,7 @@ const router        = express.Router();
 const User          = require('../models/user.js');
 const bcrypt        = require('bcrypt');
 
+
 //Register New User (have to check)
 router.get('/register', (req,res)=>{
   res.render('sessions/register.ejs', {
@@ -14,28 +15,26 @@ router.get('/register', (req,res)=>{
 });
 
 //New User Post Route (have to check)
-router.post('/register', (req,res)=>{
+router.post('/register',(req,res)=>{
   if (req.body.password != req.body.password2){
     res.render('sessions/register.ejs', {
       passwordFail: true,
       firstInput: req.body.firstName,
       lastInput: req.body.lastName,
       usernameInput: req.body.username
-    });
+    })
   } else {
-    const password = req.body.password
-const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-const userDbEntry = {};
-userDbEntry.firstName = req.body.firstName;
-userDbEntry.lastName = req.body.lastName;
-userDbEntry.userName = req.body.username;
-userDbEntry.password = passwordHash;
-console.log(userDbEntry);
-User.create(userDbEntry, (err,user)=>{
-  req.session.username = user.userName;
-  req.session.logged = true;
-  res.redirect('/');
-})
+      const userDbEntry = {}
+        userDbEntry.firstName = req.body.firstName;
+        userDbEntry.lastName = req.body.lastName;
+        userDbEntry.userName = req.body.username;
+        userDbEntry.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+      User.create(userDbEntry, (error,user)=>{
+        req.session.username = user.username;
+        req.session.logged = true;
+        console.log('new user created?');
+        res.redirect('/');
+      })
   }
 });
 
@@ -57,5 +56,6 @@ router.get('/:id', (req,res)=>{
       user: foundUser
     })
   })
-})
+});
+
 module.exports = router;

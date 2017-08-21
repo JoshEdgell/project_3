@@ -10,16 +10,14 @@
     <% if (passwordFail === true) { %>
       <p>Passwords do not match.  Please try again.</p>
     <% } %>
-      <div class="registerForm">
         <form action="/users/register" method="POST">
           First Name: <input type="text" name="firstName" value="<%=firstInput%>"><br/>
           Last Name: <input type="text" name="lastName" value="<%=lastInput%>"><br/>
           Username: <input type="text" name="username" value="<%=usernameInput%>"><br/>
           Password: <input type="password" name="password"><br/>
           Verify Password: <input type="password" name="password2"><br/>
-          <input type="submit" value="Create User" class="createUserButton">
+          <input type="submit" value="Create User">
         </form>
-      </div>
 
   </body>
 </html>
