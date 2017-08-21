@@ -16,10 +16,24 @@
 
     <!-- insert create "search" box here -->
 
-    <form submit="ctrl.createJoke()">
+      <!-- CREATE A NEW JOKE-->
+      Create a new joke:
+      <form ng-submit="ctrl.createJoke()">
+        <textarea type="text" ng-model="ctrl.jokeText"></textarea>
+        <input type="submit" value="Create Joke"/>
+      </form>
+      <!---------------------->
 
-      <!-- insert "create" box here -->
-    </form>
+    </br></br>
+    <!-- GET A COUNT OF JOKES IN OUR JOKE MODEL -->
+    We have {{ctrl.jokeCount}} jokes to choose from!
+    <!---------------------->
+
+    <ul>
+      <li ng-repeat="item in ctrl.allJokes">{{item.joke}}</li>
+    </ul>
+
+
     <section ng-submit=""> <!--not sure what submit this is for -->
       <ul>
 

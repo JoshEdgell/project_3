@@ -5,17 +5,20 @@ app.controller('MainController', ['$http', function($http){
   this.jokes = []; //all dad jokes
   this.favorites = []; //push to for registered users favorites list
   this.update = 1; //can't remember why we set it to 1.
+  this.jokeText = ''; //New joke text
+  this.jokeCount = ''; //Counts all jokes in our database
+  this.allJokes = [];
 
-  //function to request dad jokes
+  //function to request one dad joke from API
   this.getJokes = function(){
     $http({
       method: 'get',
-      url: '/jokes'
+      url: 'https://icanhazdadjoke.com'
     }).then(
       function(res){
         controller.jokes = res.data;
         //make jokes random
-        console.log(controller.jokes);
+        console.log(res.data, "response");
       },
       function(err){
         console.log('getJokes error is: ', err);
@@ -28,16 +31,41 @@ app.controller('MainController', ['$http', function($http){
       method: 'post',
       url: '/jokes',
       data: {
-        joke: this.joke
+
+        joke: this.jokeText
       }
     }).then(
         function(res){
-          controller.getJokes();
+          controller.countJokes();
+          controller.jokeText = '';
         },
         function(err){
           console.log('createJoke error is: ', err);
         }
     );
+  };
+
+  //Request to get a count of all the jokes in our database
+  this.countJokes = function(){
+    $http({
+      method: 'get',
+      url: '/jokes/count'
+    }).then(function(response){
+      controller.jokeCount = response.data
+    }, function(error){
+        console.log(error);
+    });
+  };
+  //Request to get all jokes in our database
+  this.getAllJokes = function(){
+    $http({
+      method: 'get',
+      url: '/jokes/listall'
+    }).then(function(response){
+      controller.allJokes = response.data;
+    }, function(error){
+      console.log(error);
+    })
   };
 
   //request to upddate jokes
@@ -74,6 +102,7 @@ app.controller('MainController', ['$http', function($http){
     )
   };
 
-    this.getJokes(); //callback to get jokes on page load
-
+    // this.getJokes(); //callback to get jokes on page load
+  this.countJokes();
+  this.getAllJokes();
 }]); //end of controller
