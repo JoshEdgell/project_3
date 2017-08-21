@@ -33,14 +33,7 @@
 
 
 
-<<<<<<< HEAD
-        <li ng-repeat="oneJoke in ctrl.search"> <!--we're going to have to change ng-repeat because we only get 1 joke back from the getJokes function. The search might be an option and/or user lists-->
-          <span>{{oneJoke}}</span></br>
-          <a href="#" ng-click="ctrl.updateJoke(oneJoke) = $index">Edit</a>
-          <button ng-click="ctrl.deleteJoke(oneJoke)">Delete</button>
-          <!-- The below form is activated by the above 'Edit' button -->
-          <form ng-if="$index === ctrl.update" ng-submit="ctrl.updateJoke(oneJoke)">
-=======
+
     <!-- <section ng-submit=""> <!-not sure what submit this is for -->
       <ul>
         <li ng-repeat="oneJoke in ctrl.allJokes">
@@ -49,7 +42,7 @@
           <button ng-click="ctrl.deleteJoke(oneJoke._id)">Delete</button>
           <!-- The below form is activated by the above 'Edit' button -->
           <form ng-if="ctrl.seeEditForm" ng-submit="ctrl.updateJoke(oneJoke)">
->>>>>>> 5d10ab92a468a8ed7bc1a7a6a1257b54a2e608ba
+
             <input type="text" ng-model="" /></br>
             <input type="submit" value="Update" />
           </form>
