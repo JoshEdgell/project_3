@@ -10,7 +10,7 @@ app.controller('MainController', ['$http', function($http){
   this.jokeText = ''; //New joke text
   this.jokeCount = ''; //Counts all jokes in our database
   this.allJokes = [];
-
+  this.term = ''; //search term from search bar.
   //function to request one dad joke from API
   this.getJokes = function(){
     $http({
@@ -32,7 +32,7 @@ app.controller('MainController', ['$http', function($http){
  this.searchJokes = function(){
    $http({
      method: 'get',
-     url: 'https://icanhazdadjoke.com/search',
+     url: 'https://icanhazdadjoke.com/search?term' + controller.term,
      headers: {'Accept': 'application/json'}
    }).then(
      function(res){
