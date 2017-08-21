@@ -3,7 +3,7 @@ const router        = express.Router();
 const User          = require('../models/user.js');
 const bcrypt        = require('bcrypt');
 
-//Register New User
+//Register New User (have to check)
 router.get('/register', (req,res)=>{
   res.render('sessions/register.ejs', {
     firstInput: '',
@@ -13,6 +13,7 @@ router.get('/register', (req,res)=>{
   });
 });
 
+//New User Post Route (have to check)
 router.post('/register', (req,res)=>{
   if (req.body.password != req.body.password2){
     res.render('sessions/register.ejs', {
@@ -23,7 +24,6 @@ router.post('/register', (req,res)=>{
     });
   } else {
     const password = req.body.password
-//Going with level 8 because I know this isn't top-secret enough to require level 10 security.
 const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 const userDbEntry = {};
 userDbEntry.firstName = req.body.firstName;
@@ -37,9 +37,9 @@ User.create(userDbEntry, (err,user)=>{
   res.redirect('/');
 })
   }
-})
+});
 
-//Log out
+//Log out (have to check)
 router.get('/logout',(req,res)=>{
   req.session.destroy((error)=>{
     if(error){
@@ -47,6 +47,15 @@ router.get('/logout',(req,res)=>{
     } else {
       res.redirect('/');
     }
+  })
+});
+
+//View individual user page (have to check)
+router.get('/:id', (req,res)=>{
+  User.findById(req.params.id, (error,foundUser)=>{
+    res.render('users/show.ejs', {
+      user: foundUser
+    })
   })
 })
 module.exports = router;
