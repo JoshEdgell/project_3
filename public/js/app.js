@@ -5,6 +5,8 @@ app.controller('MainController', ['$http', function($http){
   this.jokes = []; //all dad jokes
   this.favorites = []; //push to for registered users favorites list
   this.update = 1; //can't remember why we set it to 1.
+  this.jokeToUpdate = {};
+  this.seeEditForm = false;
   this.jokeText = ''; //New joke text
   this.jokeCount = ''; //Counts all jokes in our database
   this.allJokes = [];
