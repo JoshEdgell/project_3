@@ -4,6 +4,7 @@ const jokes         = require('../models/dadjokes.js');
 
 //Count the number of dad jokes
 router.get('/count', (req,res)=>{
+  console.log('request received');
   jokes.count(function(error, count) {
     res.send(count.toString());
   });
