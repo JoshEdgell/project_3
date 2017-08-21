@@ -31,7 +31,7 @@ app.controller('MainController', ['$http', function($http){
       method: 'post',
       url: '/jokes',
       data: {
-        // user: this.user,
+
         joke: this.jokeText
       }
     }).then(
@@ -75,7 +75,7 @@ app.controller('MainController', ['$http', function($http){
       url: '/jokes/' + joke._id,
       data: {
         user: joke.user,
-        jokeText: this.updatedJoke
+        joke: this.updatedJoke
       }
     }).then(
       function(res){
