@@ -29,15 +29,18 @@ app.controller('MainController', ['$http', function($http){
   };
 
   //search jokes
- this.searchJokes = function(){
+ this.searchJokes = function(searchBox){
    $http({
      method: 'get',
-     url: 'https://icanhazdadjoke.com/search',
+     url: 'https://icanhazdadjoke.com/search?term=' + searchBox,
      headers: {'Accept': 'application/json'}
+
    }).then(
      function(res){
-       controller.search = res.data;
+       console.log(searchBox);
+       controller.search = res.data.results;
        console.log(controller.search);
+
      },
      function(err){
        console.log('searchJokes error is: ', err);
