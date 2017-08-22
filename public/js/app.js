@@ -145,6 +145,7 @@ app.controller('MainController', ['$http', function($http){
       console.log(error, 'error');
     })
   };
+  //Gets a list of all users
   this.getAllUsers = function(){
     $http({
       method: "GET",
@@ -153,6 +154,30 @@ app.controller('MainController', ['$http', function($http){
       controller.allUsers = response.data
     }, function(error){
       console.log(error)
+    })
+  };
+
+
+
+
+
+  //Add a joke to a user's favorites
+  this.addToFavorites = function(id,joke){
+    $http({
+      method: "POST",
+      url: '/jokes/favorite',
+      data: {
+        api_id: id,
+        joke: joke
+      }
+    }).then(function(response){
+      if (response.data) {
+        console.log("THE JOKE HAS BEEN ADDED TO THE USER'S FAVORITES");
+      } else {
+        console.log('USER NOT LOGGED IN');
+      }
+    }, function(error){
+      console.log(error);
     })
   };
 

@@ -45,11 +45,15 @@ router.get('/listall', (req,res)=>{
 
 //View individual user page (have to check)
 router.get('/:id', (req,res)=>{
-  User.findById(req.params.id, (error,foundUser)=>{
-    res.render('users/show.ejs', {
-      user: foundUser
+  if(req.session.logged){
+    User.findById(req.params.id, (error,foundUser)=>{
+      res.render('users/show.ejs', {
+        user: foundUser
+      })
     })
-  })
+  } else {
+    res.redirect('/session/login')
+  }
 });
 
 module.exports = router;
