@@ -7,9 +7,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <!-- JS -->
     <script src="/js/app.js"></script>
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Englebert|Raleway|Bangers" rel="stylesheet">
+    <!--CSS-->
     <link rel="stylesheet" href="/css/main.css" />
   </head>
   <body ng-controller="MainController as ctrl">
+    <div class="container">
     <h1><b>The Dad Joke Factory</b></h1>
     <h3>Your Source of Fatherly Comedy</h3>
 
@@ -81,13 +85,13 @@
     <a href="/session/home">My Home</a></br>
     <!-- END OF USER HOME -->
 
-
     <!-- LIST OF ALL USERS -->
     <h4>All Users</h4>
     <ul>
       <li ng-repeat="user in ctrl.allUsers"><a href="/users/{{user._id}}">{{user.firstName}} {{user.lastName}}</a></li>
     </ul>
     <!-- END OF LIST OF USERS -->
+
 
 
   </body>

@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="DadJoke">
   <head>
     <meta charset="utf-8">
     <title><%= user.userName %></title>
+    <script src="../../public/js/app.js"></script>
   </head>
-  <body>
-    <h2>Profile: <%= user.userName %></h2>
+  <body ng-controller="MainController as ctrl">
+    <h2>Profile: </h2>
     <h3><u>Name</u></h3>
     <p><%= user.firstName %> <%= user.lastName %></p>
     <h3><u>Favorite Jokes:</u></h3>
-    <p></p>
+    <ul>
+      <% for (let i = 0; i < user.favoriteJokes.length; i++){ %>
+        <li><%= user.favoriteJokes[i] %></li>
+        <button ng-click="">Edit</button>
+        <button ng-click="">Delete</button>
+      <% } %>
+    </ul>
+    <a href="/users/register">New User</a></br>
+    <a href="/session/login">Login</a></br>
+    <a href="/session/logout">Logout</a></br>
+    <a href="/">Main Page</a>
+
   </body>
 </html>

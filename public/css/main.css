@@ -1,11 +1,14 @@
 /** {
   border: 1px solid black;
 }*/
+
+
+
 body {
   font-family: 'Raleway', sans-serif;
-  background-image: url("../img/160526_Back-01.jpg");
+  /*background-image: url("../img/160526_Back-01.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover;*/
 }
 
 
