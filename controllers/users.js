@@ -39,7 +39,7 @@ router.post('/register',(req,res)=>{
 //View individual user page (have to check)
 router.get('/:id', (req,res)=>{
   User.findById(req.params.id, (error,foundUser)=>{
-    res.render('users/show.ejs', {
+    res.render('users/index.ejs', {
       user: foundUser
     })
   })
