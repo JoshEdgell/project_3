@@ -6,8 +6,10 @@ const router          = express.Router();
 const session         = require('express-session');
 const bcrypt          = require('bcrypt');
 const ejs             = require('ejs');
+const methodOverride  = require('method-override');
 
 //Middleware
+app.use(methodOverride('_method'));
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
