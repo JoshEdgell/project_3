@@ -17,7 +17,7 @@
     <h1><b>The Dad Joke Factory</b></h1>
     <h3>Your Source of Fatherly Comedy</h3>
 
-    {{ctrl.jokes.joke}}
+    {{ctrl.jokes.joke}}<button ng-click="ctrl.addToFavorites(ctrl.jokes.id , ctrl.jokes.joke);">Add to Favorites</button>
     <ul><li ng-repeat="result in ctrl.search">{{ctrl.search}}</li></ul>
 
     <!-- insert create "search" box here -->

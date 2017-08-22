@@ -1,6 +1,7 @@
 const express       = require('express');
 const router        = express.Router();
 const jokes         = require('../models/dadjokes.js');
+const User          = require('../models/user.js');
 
 //Count the number of dad jokes
 router.get('/count', (req,res)=>{
@@ -15,6 +16,20 @@ router.get('/listall', (req,res)=>{
     res.json(jokes);
   })
 });
+
+//Add joke to favorites
+router.post('/favorite', (req,res)=>{
+  if (req.session.logged) {
+    User.findOne({'userName' : req.session.username}, (error,foundUser)=>{
+      foundUser.favoriteJokes.push(req.body);
+      foundUser.save((error,data)=>{
+        res.send('true');
+      })
+    })
+  } else {
+    res.send(false);
+  }
+})
 
 //Get single joke by id (have to check)
 router.get('/:id', (req,res)=>{
