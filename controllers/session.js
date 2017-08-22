@@ -15,9 +15,9 @@ router.post('/login', (req,res)=>{
   User.findOne({userName : req.body.userName }, (error,foundUser)=>{
     if(foundUser){
       if(bcrypt.compareSync(req.body.password, foundUser.password)){
-        req.session.username = req.body.username;
+        req.session.username = req.body.userName;
         req.session.logged = true;
-        res.redirect('/');
+        res.redirect('/session/home');
       } else {
         res.render('sessions/login.ejs', {
           passwordFail: true
@@ -45,9 +45,9 @@ router.get('/logout',(req,res)=>{
 //Go to user homepage
 router.get('/home',(req,res)=>{
   if (req.session.logged){
-    User.find({'username':req.session.username},(error,foundUser)=>{
+    User.find({'userName':req.session.username},(error,foundUser)=>{
       res.render('users/index.ejs', {
-        user: foundUser
+        user: foundUser[0]
       })
     })
   } else {
