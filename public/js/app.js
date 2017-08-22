@@ -7,6 +7,7 @@ app.controller('MainController', ['$http', function($http){
   this.update = 1; //can't remember why we set it to 1.
   this.jokeToUpdate = {};
   this.seeEditForm = false;
+  this.allUsers = [];
   this.jokeText = ''; //New joke text
   this.jokeCount = ''; //Counts all jokes in our database
   this.allJokes = [];
@@ -146,8 +147,19 @@ app.controller('MainController', ['$http', function($http){
       console.log(error, 'error');
     })
   };
+  this.getAllUsers = function(){
+    $http({
+      method: "GET",
+      url: '/users/listall'
+    }).then(function(response){
+      controller.allUsers = response.data
+    }, function(error){
+      console.log(error)
+    })
+  };
 
   this.getJokes(); //callback to get jokes on page load
   this.countJokes();
   this.getAllJokes();
+  this.getAllUsers();
 }]); //end of controller
