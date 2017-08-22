@@ -42,4 +42,17 @@ router.get('/logout',(req,res)=>{
   })
 });
 
+//Go to user homepage
+router.get('/home',(req,res)=>{
+  if (req.session.logged){
+    User.find({'username':req.session.username},(error,foundUser)=>{
+      res.render('users/index.ejs', {
+        user: foundUser
+      })
+    })
+  } else {
+    res.redirect('login');
+  }
+})
+
 module.exports = router;
