@@ -36,10 +36,17 @@ router.post('/register',(req,res)=>{
   }
 });
 
+//Get a list of all users
+router.get('/listall', (req,res)=>{
+  User.find({},(error,users)=>{
+    res.json(users);
+  })
+})
+
 //View individual user page (have to check)
 router.get('/:id', (req,res)=>{
   User.findById(req.params.id, (error,foundUser)=>{
-    res.render('users/index.ejs', {
+    res.render('users/show.ejs', {
       user: foundUser
     })
   })

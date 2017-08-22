@@ -85,7 +85,14 @@
     <a href="/session/home">My Home</a></br>
     <!-- END OF USER HOME -->
 
-  </div>
+    <!-- LIST OF ALL USERS -->
+    <h4>All Users</h4>
+    <ul>
+      <li ng-repeat="user in ctrl.allUsers"><a href="/users/{{user._id}}">{{user.firstName}} {{user.lastName}}</a></li>
+    </ul>
+    <!-- END OF LIST OF USERS -->
+
+
 
   </body>
 </html>
