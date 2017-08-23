@@ -33,6 +33,10 @@
         </li>
       <% } %>
     </ul>
+    <h3><u>My Jokes: </u></h3>
+    <ul ng-repeat="oneJoke in user.createdJokes">
+      <li>{{oneJoke}}</li>
+    </ul>
     <a href="/users/register">New User</a></br>
     <a href="/session/login">Login</a></br>
     <a href="/session/logout">Logout</a></br>
