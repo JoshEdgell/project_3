@@ -1,27 +1,28 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <% include ../partials/head.ejs %>
-  </head>
-  <body>
-    <% include ../partials/nav.ejs %>
-    <div class="centerText">
-      <h1>New User</h1>
+<html ng-app="DadJokes">
+<head>
+  <% include ../partials/head.ejs %>
+</head>
+<body ng-controller="MainController as ctrl">
+  <% include ../partials/nav.ejs %>
+  <div class="container">
+    <div class="form">
+      <h1 class="ejs-title">New User</h1>
 
       <% if (passwordFail === true) { %>
         <p>Passwords do not match.  Please try again.</p>
-      <% } %>
-          <form action="/users/register" method="POST">
+        <% } %>
+        <form action="/users/register" method="POST">
+          <div class="user-info">
             First Name: <input type="text" name="firstName" value="<%=firstInput%>"><br/>
             Last Name: <input type="text" name="lastName" value="<%=lastInput%>"><br/>
             Username: <input type="text" name="username" value="<%=usernameInput%>"><br/>
             Password: <input type="password" name="password"><br/>
-            Verify Password: <input type="password" name="password2"><br/>
+            Verify Password: <input type="password" name="password2"><br/><br/>
             <input type="submit" value="Create User">
-          </form></br></br>
-
-          <a href="/">Back home for more dad jokes</a>
+          </div>
+        </form>
+      </div>
     </div>
-
   </body>
-</html>
+  </html>
