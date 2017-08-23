@@ -73,7 +73,8 @@ app.controller('MainController', ['$http', function($http){
       method: 'get',
       url: '/jokes/count'
     }).then(function(response){
-      controller.jokeCount = response.data
+      controller.jokeCount = Number(response.data) + Number(350);
+      console.log(controller.jokeCount);
     }, function(error){
         console.log(error);
     });
