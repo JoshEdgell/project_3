@@ -9,6 +9,10 @@ body {
   background-color: white;
 }
 
+.indexBody {
+  display: flex;
+}
+
 .container {
   width: 80%;
 }
