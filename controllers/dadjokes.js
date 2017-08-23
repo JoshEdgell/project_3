@@ -23,7 +23,7 @@ router.post('/favorite', (req,res)=>{
     User.findOne({'userName' : req.session.username}, (error,foundUser)=>{
       foundUser.favoriteJokes.push(req.body);
       foundUser.save((error,data)=>{
-        res.send('true');
+        res.send(true);
       })
     })
   } else {
