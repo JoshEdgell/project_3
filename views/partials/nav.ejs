@@ -1,0 +1,43 @@
+<nav>
+  <!-- Dad Image -->
+  <img class="dad" src="/img/0-01.png" alt="dad"/>
+  <br>
+  <div class="nav-text">
+    <!-- GET A COUNT OF JOKES IN OUR JOKE MODEL -->
+    <p id="joke-count">We have <b>{{ctrl.jokeCount}}</b> jokes to choose from!</p>
+    <br><br>
+
+    <!--RANDOM JOKE-->
+    <button ng-click="ctrl.getRandomJoke();">Get Random Joke</button>
+    <br><br>
+    <!--SEARCH JOKES-->
+    <form ng-submit="ctrl.searchJokes(searchBox)">
+      <input type="text" ng-model="searchBox"></input>
+      <button type="submit"><i class="fa fa-search" style="font-size: 14px;"></i></button>
+    </form>
+
+    <br><br>
+    <!-- REGISTER NEW USER -->
+    <a href="/users/register" class="button menu-button">New User</a></br>
+    <!--  END OF 'REGISTER NEW USER' -->
+    <!-- USER LOGIN -->
+    <a href="/session/login" class="button menu-button">Login</a></br>
+    <!-- END OF 'USER LOGIN'   -->
+    <!-- USER LOGOUT -->
+    <a href="/session/logout" class="button menu-button">Logout</a></br>
+    <!-- END OF USER LOGOUT -->
+    <!-- GO TO USER HOME -->
+    <a href="/session/home" class="button menu-button">My Home</a></br>
+    <!-- END OF USER HOME -->
+
+    <!-- LIST OF ALL USERS -->
+    <h4 class="user-list">All Users</h4>
+    <ul style="padding: 0px; margin: 0px">
+      <li class="user-list" ng-repeat="user in ctrl.allUsers"><a class="user-list" href="/users/{{user._id}}">{{user.firstName}} {{user.lastName}}</a></li>
+    </ul>
+    <!-- END OF LIST OF USERS -->
+
+
+
+  </div>
+</nav>
