@@ -26,6 +26,8 @@ const userController = require('./controllers/users.js');
 app.use('/users', userController);
 const sessionController = require('./controllers/session.js');
 app.use('/session', sessionController);
+const seedController = require('./controllers/seed.js');
+app.use('/seed', seedController);
 
 app.get('/', (req,res)=>{
   res.render(index.html);
