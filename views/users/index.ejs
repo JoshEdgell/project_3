@@ -23,7 +23,7 @@
     <div>
       <p>Create a new joke:</p>
       <form ng-submit="ctrl.createJoke()">
-        <textarea type="text" ></textarea>
+        <textarea type="text" ng-model="ctrl.jokeText"></textarea>
         <input type="submit" value="Create Joke"/>
       </form>
     </div>
