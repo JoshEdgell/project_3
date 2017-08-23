@@ -29,6 +29,21 @@ app.controller('MainController', ['$http', function($http){
     );
   };
 
+  //Get a count of all the jokes on the API
+  this.countAPI = function(){
+    $http({
+      method: 'get',
+      url: 'https://icanhazdadjoke.com/search',
+      headers: {'Accept':'application/json'}
+    }).then(
+      function(response){
+        console.log(response.data.total_jokes, 'total jokes in API');
+      }, function (error){
+        console.log(error);
+      }
+    )
+  };
+
   //search jokes
  this.searchJokes = function(searchBox){
    $http({
@@ -186,4 +201,5 @@ app.controller('MainController', ['$http', function($http){
   this.countJokes();
   this.getAllJokes();
   this.getAllUsers();
+  this.countAPI();
 }]); //end of controller
