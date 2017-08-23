@@ -10,33 +10,57 @@
   <!--Fonts-->
   <link href="https://fonts.googleapis.com/css?family=Englebert|Raleway|Bangers" rel="stylesheet">
   <!--CSS-->
-  <link rel="stylesheet" href="/css/main.css" />
+  <%# <link rel="stylesheet" href="/css/main.css" />%>
 </head>
   <body ng-controller="MainController as ctrl">
-    <h2>Profile: </h2>
+
+    <%# Basic information%>
+    <h2>Profile: <%= user.userName %></h2>
     <h3><u>Name</u></h3>
     <p><%= user.firstName %> <%= user.lastName %></p>
-    <h3><u>Username</u></h3>
-    <p><%= user.userName %></p>
-    <h3><u>Favorite Jokes:</u></h3>
-    <ul>
-      <% for (let i = 0; i < user.favoriteJokes.length; i++){ %>
-        <li>
-          <% let thisJoke = user.favoriteJokes[i].joke %>
-          <p><%= thisJoke %></p>
-          <button ng-click="ctrl.toggleEditForm()">Edit</button>
-          <button ng-click="ctrl.deleteJoke(thisJoke._id)">Delete</button>
-          <form ng-if="ctrl.seeEditForm" ng-submit="ctrl.updateJoke(thisJoke)">
-            <input type="text" ng-model="" />
-            <input type="submit" value="Update" />
-          </form>
-        </li>
-      <% } %>
-    </ul>
-    <h3><u>My Jokes: </u></h3>
-    <ul ng-repeat="oneJoke in user.createdJokes">
-      <li>{{oneJoke}}</li>
-    </ul>
+
+    <%# Create a new joke box%>
+    <div>
+      <p>Create a new joke:</p>
+      <form ng-submit="ctrl.createJoke()">
+        <textarea type="text" ></textarea>
+        <input type="submit" value="Create Joke"/>
+      </form>
+    </div>
+
+    <%# Favorite Jokes box%>
+    <div>
+      <h3><u>Favorite Jokes:</u></h3>
+      <ul>
+        <% for (let i = 0; i < user.favoriteJokes.length; i++){ %>
+          <li>
+            <% let thisJoke = user.favoriteJokes[i].joke %>
+            <p><%= thisJoke %></p>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+
+    <%# "My Jokes" box%>
+    <div>
+      <h3><u>My Jokes: </u></h3>
+      <ul>
+        <% for (let i = 0; i < user.createdJokes.length; i++){ %>
+          <li>
+            <% let thisJoke = user.createdJokes[i].joke %>
+            <p><%= thisJoke %></p>
+            <button ng-click="ctrl.toggleEditForm()">Edit</button>
+            <button ng-click="ctrl.deleteJoke(thisJoke._id)">Delete</button>
+            <form ng-if="ctrl.seeEditForm" ng-submit="ctrl.updateJoke(thisJoke)">
+              <input type="text" ng-model="" />
+              <input type="submit" value="Update" />
+            </form>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+
+    <%# Links to return or login/out%>
     <a href="/users/register">New User</a></br>
     <a href="/session/login">Login</a></br>
     <a href="/session/logout">Logout</a></br>

@@ -13,7 +13,7 @@ app.controller('MainController', ['$http', function($http){
   this.apiJokeCount = 0; //counts all the jokes in the outside api
   this.totalJokeCount = 0; //counts all jokes in both databases
   this.allJokes = [];
-  
+
   //function to request one dad joke from API
   this.getJokes = function(){
     $http({
@@ -23,7 +23,6 @@ app.controller('MainController', ['$http', function($http){
     }).then(
       function(res){
         controller.jokes = res.data;
-        console.log(controller.jokes);
       },
       function(err){
         console.log('getJokes error is: ', err);
@@ -40,9 +39,7 @@ app.controller('MainController', ['$http', function($http){
 
    }).then(
      function(res){
-       console.log(searchBox);
         controller.searchResult = res.data.results;
-        console.log(controller.searchResult);
      },
      function(err){
        console.log('searchJokes error is: ', err);
@@ -56,7 +53,6 @@ app.controller('MainController', ['$http', function($http){
       method: 'post',
       url: '/jokes',
       data: {
-
         joke: this.jokeText
       }
     }).then(
@@ -191,6 +187,7 @@ app.controller('MainController', ['$http', function($http){
 
   //Add a joke to a user's favorites
   this.addToFavorites = function(id,joke){
+    console.log('button clicked');
     $http({
       method: "POST",
       url: '/jokes/favorite',
