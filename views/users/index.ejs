@@ -1,20 +1,36 @@
 <!DOCTYPE html>
-<html ng-app="DadJoke">
-  <head>
-    <meta charset="utf-8">
-    <title><%= user.userName %></title>
-    <script src="../../public/js/app.js"></script>
-  </head>
+<html ng-app="DadJokes">
+<head>
+  <meta charset="utf-8">
+  <title>Dad Humor</title>
+  <!-- Angular -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <!-- JS -->
+  <script src="/js/app.js"></script>
+  <!--Fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Englebert|Raleway|Bangers" rel="stylesheet">
+  <!--CSS-->
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
   <body ng-controller="MainController as ctrl">
     <h2>Profile: </h2>
     <h3><u>Name</u></h3>
     <p><%= user.firstName %> <%= user.lastName %></p>
+    <h3><u>Username</u></h3>
+    <p><%= user.userName %></p>
     <h3><u>Favorite Jokes:</u></h3>
     <ul>
       <% for (let i = 0; i < user.favoriteJokes.length; i++){ %>
-        <li><%= user.favoriteJokes[i] %></li>
-        <button ng-click="">Edit</button>
-        <button ng-click="">Delete</button>
+        <li>
+          <% let thisJoke = user.favoriteJokes[i].joke %>
+          <p><%= thisJoke %></p>
+          <button ng-click="ctrl.toggleEditForm()">Edit</button>
+          <button ng-click="ctrl.deleteJoke(thisJoke._id)">Delete</button>
+          <form ng-if="ctrl.seeEditForm" ng-submit="ctrl.updateJoke(thisJoke)">
+            <input type="text" ng-model="" />
+            <input type="submit" value="Update" />
+          </form>
+        </li>
       <% } %>
     </ul>
     <a href="/users/register">New User</a></br>
