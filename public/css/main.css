@@ -7,11 +7,10 @@
 body {
   font-family: 'Quicksand', sans-serif;
   background-color: white;
+  display: flex
 }
 
-.indexBody {
-  display: flex;
-}
+
 
 .container {
   width: 80%;
@@ -53,6 +52,7 @@ b {
   font-size: 28px;
 }
 
+/*Titles*/
 .title {
 font-family: 'Bangers', cursive;
 letter-spacing: 3px;
@@ -77,6 +77,12 @@ animation-duration: .75s;
 
 }
 
+.ejs-title {
+  font-family: 'Bangers', cursive;
+  font-size: 50px;
+  text-align: center;
+}
+
 .joke-box {
   margin: auto;
   margin-top: 20%;
@@ -97,6 +103,8 @@ animation-duration: .75s;
   margin-left: 45%;
   margin-top: 15%;
 }
+
+/*Nav, Buttons, Forms*/
 
 button, .button, input, .user-list {
   display: inline-block;
@@ -151,6 +159,23 @@ a.user-list:hover{
 button:hover, .menu-button:hover {
   box-shadow: 0 0 10px #75ccdd;
 }
+
+.form {
+  width: 40%;
+  text-align: left;
+  margin: auto;
+  line-height: 30px;
+  margin-top: 30%;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.18), 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /*box shadow from W3 Schools*/
+}
+
+.user-info {
+  text-align: right;
+  margin-right: 10%;
+}
+
 
 /*----------------- LOGIN/REGISTER CSS --------------------*/
 .session {
