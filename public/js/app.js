@@ -7,6 +7,7 @@ app.controller('MainController', ['$http', function($http){
   this.update = 1; //can't remember why we set it to 1.
   this.jokeToUpdate = {};
   this.seeEditForm = false;
+  this.allUsers = [];
   this.jokeText = ''; //New joke text
   this.jokeCount = ''; //Counts all jokes in our database
   this.allJokes = [];
@@ -29,15 +30,17 @@ app.controller('MainController', ['$http', function($http){
   };
 
   //search jokes
- this.searchJokes = function(){
+ this.searchJokes = function(searchBox){
    $http({
      method: 'get',
-     url: 'https://icanhazdadjoke.com/search',
+     url: 'https://icanhazdadjoke.com/search?term=' + searchBox,
      headers: {'Accept': 'application/json'}
+
    }).then(
      function(res){
-       controller.search = res.data;
-       console.log(controller.search);
+       console.log(searchBox);
+        controller.searchResult = res.data.results;
+        console.log(controller.searchResult);
      },
      function(err){
        console.log('searchJokes error is: ', err);
@@ -143,8 +146,44 @@ app.controller('MainController', ['$http', function($http){
       console.log(error, 'error');
     })
   };
+  //Gets a list of all users
+  this.getAllUsers = function(){
+    $http({
+      method: "GET",
+      url: '/users/listall'
+    }).then(function(response){
+      controller.allUsers = response.data
+    }, function(error){
+      console.log(error)
+    })
+  };
+
+
+
+
+
+  //Add a joke to a user's favorites
+  this.addToFavorites = function(id,joke){
+    $http({
+      method: "POST",
+      url: '/jokes/favorite',
+      data: {
+        api_id: id,
+        joke: joke
+      }
+    }).then(function(response){
+      if (response.data) {
+        console.log("THE JOKE HAS BEEN ADDED TO THE USER'S FAVORITES");
+      } else {
+        console.log('USER NOT LOGGED IN');
+      }
+    }, function(error){
+      console.log(error);
+    })
+  };
 
   this.getJokes(); //callback to get jokes on page load
   this.countJokes();
   this.getAllJokes();
+  this.getAllUsers();
 }]); //end of controller

@@ -1,7 +1,42 @@
-.background-img {
+/** {
+  border: 1px solid black;
+}*/
+
+
+
+body {
+  font-family: 'Raleway', sans-serif;
+  /*background-image: url("../img/160526_Back-01.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;*/
+}
+
+
+.dad {
+  width: 200px;
+  height: auto;
+  display: inline-block;
   position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: -1;
-  width: 80%;
+  top: 50%;
+  left: 30%;
+}
+
+
+
+.title {
+font-family: 'Bangers', cursive;
+letter-spacing: 3px;
+color: #FCCE4E;
+text-shadow: -1px 3px 5px #EB282E, 3px 3px 25px #EB282E, -1px 0 5px #EB282E;
+font-size: 60px;
+text-align: center;
+margin-top: 0px;
+padding: 10px;
+}
+
+.joke {
+  font-family: 'Englebert', sans-serif;
+  width: 25%;
+  margin-left: 45%;
+  margin-top: 15%;
 }
