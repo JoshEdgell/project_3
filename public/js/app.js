@@ -9,7 +9,9 @@ app.controller('MainController', ['$http', function($http){
   this.seeEditForm = false;
   this.allUsers = [];
   this.jokeText = ''; //New joke text
-  this.jokeCount = ''; //Counts all jokes in our database
+  this.jokeCount = 0; //Counts all jokes in our database
+  this.apiJokeCount = 0; //counts all the jokes in the outside api
+  this.totalJokeCount = 0; //counts all jokes in both databases
   this.allJokes = [];
   
   //function to request one dad joke from API
@@ -27,21 +29,6 @@ app.controller('MainController', ['$http', function($http){
         console.log('getJokes error is: ', err);
       }
     );
-  };
-
-  //Get a count of all the jokes on the API
-  this.countAPI = function(){
-    $http({
-      method: 'get',
-      url: 'https://icanhazdadjoke.com/search',
-      headers: {'Accept':'application/json'}
-    }).then(
-      function(response){
-        console.log(response.data.total_jokes, 'total jokes in API');
-      }, function (error){
-        console.log(error);
-      }
-    )
   };
 
   //search jokes
@@ -95,6 +82,35 @@ app.controller('MainController', ['$http', function($http){
         console.log(error);
     });
   };
+
+  //Get a count of all the jokes on the API
+  this.countAPI = function(){
+    $http({
+      method: 'get',
+      url: 'https://icanhazdadjoke.com/search',
+      headers: {'Accept':'application/json'}
+    }).then(
+      function(response){
+        controller.apiJokeCount = response.data.total_jokes;
+      }, function (error){
+        console.log(error);
+      }
+    )
+  };
+
+  //Count of all jokes on both APIs
+  this.getRandomJoke = function(){
+    this.totalJokeCount = Number(this.jokeCount) + Number(this.apiJokeCount);
+    const userPercent = Number(this.jokeCount) / this.totalJokeCount;
+    const random = Math.random();
+    if (random < userPercent) {
+    const jokeNumber = Math.floor(Math.random() * this.allJokes.length)
+       this.jokes = this.allJokes[jokeNumber]
+    } else {
+      this.getJokes();
+    }
+  };
+
   //Request to get all jokes in our database
   this.getAllJokes = function(){
     $http({
@@ -173,10 +189,6 @@ app.controller('MainController', ['$http', function($http){
     })
   };
 
-
-
-
-
   //Add a joke to a user's favorites
   this.addToFavorites = function(id,joke){
     $http({
@@ -196,10 +208,9 @@ app.controller('MainController', ['$http', function($http){
       console.log(error);
     })
   };
-
   this.getJokes(); //callback to get jokes on page load
-  this.countJokes();
   this.getAllJokes();
   this.getAllUsers();
   this.countAPI();
+  this.countJokes();
 }]); //end of controller
