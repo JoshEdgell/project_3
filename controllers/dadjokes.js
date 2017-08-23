@@ -47,9 +47,6 @@ router.post('/', (req,res)=>{
       foundUser.save((error,data)=>{
         res.json(newJoke);
       })
-      // console.log(foundUser.createdJokes, 'created jokes');
-      // console.log(foundUser);
-      // res.json(newJoke);
     })
   })
 });
