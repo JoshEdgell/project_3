@@ -2,22 +2,27 @@
 <html ng-app="DadJokes">
   <head>
     <meta charset="utf-8">
-    <title>Show</title>
+    <title>Welcome to <%=user.firstName%>'s Jokes Page!</title>
     <!-- Angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <!-- JS -->
     <script src="/js/app.js"></script>
   </head>
   <body ng-controller="MainController as ctrl">
-    <h2>Profile: <%= user.userName %></h2>
-    <h3><u>Name</u></h3>
-    <p><%= user.firstName %> <%= user.lastName %></p>
-    <h3><u>Favorite Jokes:</u></h3>
+    <h3><u>Jokes <%=user.firstName%> <%=user.lastName%> has created</u></h3>
+      <ul>
+        <% for (let i = 0; i < user.createdJokes.length; i++) { %>
+          <li><%=user.createdJokes[i].joke%></li>
+        <% } %>
+      </ul>
+
+
+    <h3><u><%=user.firstName%>'s Favorite Jokes:</u></h3>
+    <p ng-if="ctrl.poop">Show me</p>
     <ul>
       <% for (let i = 0; i < user.favoriteJokes.length; i++){ %>
-        <li> joke <%= user.favoriteJokes[i].joke %> id <%= user.favoriteJokes[i]._id %>
-        <button ng-click="ctrl.addToFavorites(<%= user.favoriteJokes[i]._id %> , <%= user.favoriteJokes[i].joke %>);">Add to Favorites</button>
-        </li>
+        <li><%= user.favoriteJokes[i].joke %></li>
+        <!-- Would like to add a 'Add to favorites' button right here, but having trouble passing joke text into the addToFavorites function -->
       <% } %>
     </ul>
     <!-- REGISTER NEW USER -->
