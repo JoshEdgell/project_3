@@ -23,7 +23,6 @@ app.controller('MainController', ['$http', function($http){
     }).then(
       function(res){
         controller.jokes = res.data;
-        console.log(controller.jokes);
       },
       function(err){
         console.log('getJokes error is: ', err);
@@ -40,9 +39,7 @@ app.controller('MainController', ['$http', function($http){
 
    }).then(
      function(res){
-       console.log(searchBox);
         controller.searchResult = res.data.results;
-        console.log(controller.searchResult);
      },
      function(err){
        console.log('searchJokes error is: ', err);
@@ -190,6 +187,7 @@ app.controller('MainController', ['$http', function($http){
 
   //Add a joke to a user's favorites
   this.addToFavorites = function(id,joke){
+    console.log('button clicked');
     $http({
       method: "POST",
       url: '/jokes/favorite',

@@ -19,6 +19,7 @@ router.get('/listall', (req,res)=>{
 
 //Add joke to favorites
 router.post('/favorite', (req,res)=>{
+  console.log(req.body);
   if (req.session.logged) {
     User.findOne({'userName' : req.session.username}, (error,foundUser)=>{
       foundUser.favoriteJokes.push(req.body);

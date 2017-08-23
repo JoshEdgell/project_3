@@ -43,7 +43,7 @@ router.get('/listall', (req,res)=>{
   })
 })
 
-//View individual user page (have to check)
+//View individual user page
 router.get('/:id', (req,res)=>{
   if(req.session.logged){
     User.findById(req.params.id, (error,foundUser)=>{
