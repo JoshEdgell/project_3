@@ -13,7 +13,7 @@ app.controller('MainController', ['$http', function($http){
   this.apiJokeCount = 0; //counts all the jokes in the outside api
   this.totalJokeCount = 0; //counts all jokes in both databases
   this.allJokes = [];
-
+  
   //function to request one dad joke from API
   this.getJokes = function(){
     $http({
