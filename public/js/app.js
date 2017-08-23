@@ -11,7 +11,7 @@ app.controller('MainController', ['$http', function($http){
   this.jokeText = ''; //New joke text
   this.jokeCount = ''; //Counts all jokes in our database
   this.allJokes = [];
-  
+
   //function to request one dad joke from API
   this.getJokes = function(){
     $http({
@@ -54,7 +54,6 @@ app.controller('MainController', ['$http', function($http){
       method: 'post',
       url: '/jokes',
       data: {
-
         joke: this.jokeText
       }
     }).then(

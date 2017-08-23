@@ -15,11 +15,9 @@
   <body ng-controller="MainController as ctrl">
 
     <%# Basic information%>
-    <h2>Profile: </h2>
+    <h2>Profile: <%= user.userName %></h2>
     <h3><u>Name</u></h3>
     <p><%= user.firstName %> <%= user.lastName %></p>
-    <h3><u>Username</u></h3>
-    <p><%= user.userName %></p>
 
     <%# Create a new joke box%>
     <div>
