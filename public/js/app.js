@@ -187,7 +187,6 @@ app.controller('MainController', ['$http', function($http){
 
   //Add a joke to a user's favorites
   this.addToFavorites = function(id,joke){
-    console.log('button clicked');
     $http({
       method: "POST",
       url: '/jokes/favorite',
@@ -199,7 +198,7 @@ app.controller('MainController', ['$http', function($http){
       if (response.data) {
         console.log("THE JOKE HAS BEEN ADDED TO THE USER'S FAVORITES");
       } else {
-        console.log('USER NOT LOGGED IN');
+        alert("You must log in before adding a joke to your favorites.");
       }
     }, function(error){
       console.log(error);
