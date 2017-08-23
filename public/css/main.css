@@ -314,4 +314,7 @@ button:hover, .menu-button:hover {
   .form {
     margin-top: 10%;
   }
+  .subtitle {
+    font-size: 40px;
+  }
 }
