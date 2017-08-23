@@ -8,6 +8,7 @@ const userSchema = mongoose.Schema({
   firstName:      String,
   lastName:       String,
   favoriteJokes:  [Joke.schema],
+  createdJokes:   [Joke.schema],
   password:       String
 });
 
