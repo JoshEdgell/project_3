@@ -1,24 +1,31 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <% include ../partials/head.ejs %>
-  </head>
-  <body>
-    <% include ../partials/nav.ejs %>
-    <h3>User Login Page</h3>
+<html ng-app="DadJokes">
+<head>
+  <% include ../partials/head.ejs %>
+</head>
+<body ng-controller="MainController as ctrl">
+  <% include ../partials/nav.ejs %>
+  <div class="container">
+    <div class="form">
+      <h3 class="ejs-title">User Login</h3>
 
-    <% if (passwordFail === true) { %>
-      <p>Username and password combination not found</p>
-    <% } %>
+      <% if (passwordFail === true) { %>
+        <p>Username and password combination not found</p>
+        <% } %>
 
-    <form action="/session/login" method="POST">
-      Username: <input type="text" name="userName"></br>
-      Password: <input type="password" name="password"></br>
-      <input type="submit" value="Login">
-    </form>
+        <form action="/session/login" method="POST">
+          <div class="user-info">
+          Username: <input type="text" name="userName"><br>
+          Password: <input type="password" name="password"><br><br>
+          <input class="menu-button" type="submit" value="Login">
+        </div>
+        </form>
+        <br>
+      Don't have an account?<br>
+      <a class="button menu-button" href="/users/register">Register</a>
+      <br><br>
 
-    Don't have an account? <a href="/users/register">Create one now. </a></br>
-    <a href="/">Go home for more dad jokes!</a>
-
+      </div>
+    </div>
   </body>
-</html>
+  </html>
