@@ -20,7 +20,7 @@
     <br>
     <div class="nav-text">
     <!-- GET A COUNT OF JOKES IN OUR JOKE MODEL -->
-    <p id="joke-count">We have {{ctrl.jokeCount}} jokes to choose from!</p>
+    <p id="joke-count">We have <b>{{ctrl.jokeCount}}</b> jokes to choose from!</p>
     <br><br>
 
     <!--RANDOM JOKE-->
@@ -47,9 +47,9 @@
     <!-- END OF USER HOME -->
 
     <!-- LIST OF ALL USERS -->
-    <h4>All Users</h4>
-    <ul>
-      <li ng-repeat="user in ctrl.allUsers"><a href="/users/{{user._id}}">{{user.firstName}} {{user.lastName}}</a></li>
+    <h4 class="user-list">All Users</h4>
+    <ul style="padding: 0px; margin: 0px">
+      <li class="user-list" ng-repeat="user in ctrl.allUsers"><a class="user-list" href="/users/{{user._id}}">{{user.firstName}} {{user.lastName}}</a></li>
     </ul>
     <!-- END OF LIST OF USERS -->
 
