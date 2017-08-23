@@ -16,6 +16,7 @@
     <div class="container">
     <h1><b>The Dad Joke Factory</b></h1>
     <h3>Your Source of Fatherly Comedy</h3>
+        <button ng-click="ctrl.getRandomJoke();">Get Random Joke</button>
 
     {{ctrl.jokes.joke}}<button ng-click="ctrl.addToFavorites(ctrl.jokes.id , ctrl.jokes.joke);">Add to Favorites</button>
     <ul><li ng-repeat="result in ctrl.searchResult track by $index">{{result.joke}}</li></ul>
@@ -91,6 +92,7 @@
       <li ng-repeat="user in ctrl.allUsers"><a href="/users/{{user._id}}">{{user.firstName}} {{user.lastName}}</a></li>
     </ul>
     <!-- END OF LIST OF USERS -->
+
 
 
 
