@@ -110,11 +110,23 @@ button, .button, input {
   border: 1px solid #bbb;
   cursor: pointer;
   box-sizing: border-box;
+  /*button code adapted from Skeleton*/
+}
+
+#joke-count {
+  text-align: center;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
 .menu-button {
   width: 90px;
   margin: 5px;
+
+}
+
+button:hover, .menu-button:hover {
+  box-shadow: 0 0 10px #75ccdd;
 }
 
 
