@@ -80,7 +80,7 @@ animation-duration: .75s;
   vertical-align: middle;
   width: 33%;
   overflow: scroll;
-
+  text-align: justify;
   font-size: 1.25rem;
   line-height: 1.25em;
 }
@@ -143,7 +143,6 @@ a.user-list:hover{
 .menu-button {
   width: 90px;
   margin: 5px;
-
 }
 
 button:hover, .menu-button:hover {
