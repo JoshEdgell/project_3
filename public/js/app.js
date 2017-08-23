@@ -39,7 +39,8 @@ app.controller('MainController', ['$http', function($http){
    }).then(
      function(res){
        console.log(searchBox);
-       controller.search = res.data.results;
+        controller.searchResult = res.data.results;
+        console.log(controller.searchResult);
      },
      function(err){
        console.log('searchJokes error is: ', err);
