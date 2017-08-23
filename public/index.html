@@ -1,77 +1,25 @@
 <!DOCTYPE html>
 <html ng-app="DadJokes">
-  <head>
-    <meta charset="utf-8">
-    <title>Dad Humor</title>
-    <!-- Angular -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <!-- JS -->
-    <script src="/js/app.js"></script>
-    <!--Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Englebert|Raleway|Bangers" rel="stylesheet">
-    <!--CSS-->
-    <link rel="stylesheet" href="/css/main.css" />
-  </head>
-  <body ng-controller="MainController as ctrl">
-    <div class="container">
-    <h1><b>The Dad Joke Factory</b></h1>
-    <h3>Your Source of Fatherly Comedy</h3>
-
-    {{ctrl.jokes.joke}}<button ng-click="ctrl.addToFavorites(ctrl.jokes.id , ctrl.jokes.joke);">Add to Favorites</button>
-    <ul><li ng-repeat="result in ctrl.searchResult track by $index">{{result.joke}}</li></ul>
-
-    <!-- insert create "search" box here -->
+<head>
+  <meta charset="utf-8">
+  <title>Dad Humor</title>
+  <!-- Angular -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <!-- JS -->
+  <script src="/js/app.js"></script>
+  <!--Fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Englebert|Raleway|Bangers" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--CSS-->
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body ng-controller="MainController as ctrl">
+  <nav>
+    <!--SEARCH JOKES-->
     <form ng-submit="ctrl.searchJokes(searchBox)">
       <input type="text" ng-model="searchBox"></input>
-      <button type="submit">magnifying glass</button>
+      <button type="submit"><i class="fa fa-search"></i></button>
     </form>
-    <br><br>
-      <!-- CREATE A NEW JOKE-->
-      Create a new joke:
-      <form ng-submit="ctrl.createJoke()">
-        <textarea type="text" ></textarea>
-        <input type="submit" value="Create Joke"/>
-      </form>
-      <!---------------------->
-
-    </br></br>
-    <!-- GET A COUNT OF JOKES IN OUR JOKE MODEL -->
-    We have {{ctrl.jokeCount}} jokes to choose from!
-    <!---------------------->
-
-
-
-
-
-    <!-- <section ng-submit=""> <!-not sure what submit this is for -->
-      <ul>
-        <li ng-repeat="oneJoke in ctrl.allJokes | filter: searchBox">
-          {{oneJoke.joke}}
-          <button ng-click="ctrl.toggleEditForm();">Edit</button>
-          <button ng-click="ctrl.deleteJoke(oneJoke._id)">Delete</button>
-          <!-- The below form is activated by the above 'Edit' button -->
-          <form ng-if="ctrl.seeEditForm" ng-submit="ctrl.updateJoke(oneJoke)">
-
-            <input type="text" ng-model="" /></br>
-            <input type="submit" value="Update" />
-          </form>
-        </li>
-      </ul>
-    <!-- </section> -->
-
-
-    <h4>Alternate Edit Option - Work In Progress</h4>
-    <form>
-      <textarea ng-model="ctrl.jokeToUpdate.joke"></textarea>
-      <button ng-click="ctrl.alternateEdit(ctrl.jokeToUpdate._id);">Edit</button>
-    </form>
-    <ul>
-      <li ng-repeat="oneJoke in ctrl.allJokes">
-        {{oneJoke.joke}}
-        <button ng-click="ctrl.alternateEditStart(oneJoke);">Edit</button>
-      </li>
-    </ul>
-
     <!-- REGISTER NEW USER -->
     <a href="/users/register">New User</a></br>
     <!--  END OF 'REGISTER NEW USER' -->
@@ -92,7 +40,74 @@
     </ul>
     <!-- END OF LIST OF USERS -->
 
+    <!-- CREATE A NEW JOKE-->
+    Create a new joke:
+    <form ng-submit="ctrl.createJoke()">
+      <textarea type="text" ></textarea>
+      <input type="submit" value="Create Joke"/>
+    </form>
+    <!---------------------->
+
+    <!-- GET A COUNT OF JOKES IN OUR JOKE MODEL -->
+    We have {{ctrl.jokeCount}} jokes to choose from!
+    <!---------------------->
 
 
-  </body>
+
+
+
+    <!-- <section ng-submit=""> <!-not sure what submit this is for -->
+    <ul>
+      <li ng-repeat="oneJoke in ctrl.allJokes | filter: searchBox">
+        {{oneJoke.joke}}
+        <button ng-click="ctrl.toggleEditForm();">Edit</button>
+        <button ng-click="ctrl.deleteJoke(oneJoke._id)">Delete</button>
+        <!-- The below form is activated by the above 'Edit' button -->
+        <form ng-if="ctrl.seeEditForm" ng-submit="ctrl.updateJoke(oneJoke)">
+
+          <input type="text" ng-model="" /></br>
+          <input type="submit" value="Update" />
+        </form>
+      </li>
+    </ul>
+    <!-- </section> -->
+
+
+    <h4>Alternate Edit Option - Work In Progress</h4>
+    <form>
+      <textarea ng-model="ctrl.jokeToUpdate.joke"></textarea>
+      <button ng-click="ctrl.alternateEdit(ctrl.jokeToUpdate._id);">Edit</button>
+    </form>
+    <ul>
+      <li ng-repeat="oneJoke in ctrl.allJokes">
+        {{oneJoke.joke}}
+        <button ng-click="ctrl.alternateEditStart(oneJoke);">Edit</button>
+      </li>
+    </ul>
+
+  </nav>
+
+
+  <div class="container">
+    <h1 class="title">The Dad Joke Factory</h1>
+    <h3 class="subtitle">The Mother of All Dad Joke Apps</h3>
+    <img src="/img/160526_Back-01.jpg" alt="background" class="main-img"/>
+
+
+  <div class="joke-box">
+    {{ctrl.jokes.joke}}
+    <br>
+    <i class="fa fa-star" ng-click="ctrl.addToFavorites(ctrl.jokes.id , ctrl.jokes.joke);"></i>
+    <ul><li ng-repeat="result in ctrl.searchResult track by $index">{{result.joke}}</li></ul>
+
+  </div>
+
+
+
+
+
+
+
+
+</body>
 </html>
