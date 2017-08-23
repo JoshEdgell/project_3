@@ -1,17 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="DadJokes">
   <head>
-    <meta charset="utf-8">
-    <title>Show</title>
+    <% include ../partials/head.ejs %>
   </head>
-  <body>
-    <h2>Profile: </h2>
-    <h3><u>Name</u></h3>
-    <p><%= user.firstName %> <%= user.lastName %></p>
-    <h3><u>Favorite Jokes:</u></h3>
-    <% for (oneJoke in user.favoriteJokes){ %>
-      <p><%= oneJoke %></p>
-    <% } %>
+  <body ng-controller="MainController as ctrl" class="indexBody">
+    <% include ../partials/nav.ejs %>
+    <div class="container">
+    <h3><u>Jokes <%=user.firstName%> <%=user.lastName%> has created</u></h3>
+      <ul>
+        <% for (let i = 0; i < user.createdJokes.length; i++) { %>
+          <li><%=user.createdJokes[i].joke%></li>
+        <% } %>
+      </ul>
+
+
+    <h3><u><%=user.firstName%>'s Favorite Jokes:</u></h3>
+    <p ng-if="ctrl.poop">Show me</p>
+    <ul>
+      <% for (let i = 0; i < user.favoriteJokes.length; i++){ %>
+        <li><%= user.favoriteJokes[i].joke %></li>
+        // <!--Would like to add a 'Add to favorites' button right here, but having trouble passing joke text into the addToFavorites function -->
+      <% } %>
+    </ul>
     <!-- REGISTER NEW USER -->
     <a href="/users/register">New User</a></br>
     <!--  END OF 'REGISTER NEW USER' -->
@@ -24,5 +34,6 @@
     <!-- GO TO USER HOME -->
     <a href="/session/home">My Home</a></br>
     <!-- END OF USER HOME -->
+  </div>
   </body>
 </html>

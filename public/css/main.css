@@ -5,8 +5,11 @@
 
 
 body {
-  font-family: 'Raleway', sans-serif;
-  background-color: #30BDBF;
+  font-family: 'Quicksand', sans-serif;
+  background-color: white;
+}
+
+.indexBody {
   display: flex;
 }
 
@@ -16,7 +19,10 @@ body {
 
 nav {
   width: 200px;
+}
 
+b {
+  font-size: 20px;
 }
 
 .main-img {
@@ -24,16 +30,18 @@ nav {
   position: absolute;
   top: 100px;
   z-index: -1;
-
+  /*shadow effects*/
+  border-radius: 10px;
+  box-shadow: 0 0 20px #75ccdd;
 }
 
 .dad {
   width: 200px;
   height: auto;
-  display: inline-block;
-  position: absolute;
-  top: 65%;
-  left: 57%;
+  display: block;
+  position: static;
+  top: 0;
+  left: 0;
 }
 
 .fa.fa-star {
@@ -53,17 +61,18 @@ text-shadow: -1px 3px 5px #EB282E, 3px 3px 25px #EB282E, -1px 0 5px #EB282E;
 font-size: 65px;
 text-align: center;
 margin-top: 0px;
-padding: 10px;
+
 
 animation: title;
-animation-duration: 1s;
+animation-duration: .75s;
 }
 
 .subtitle {
-  font-family: 'Englebert', sans-serif;
-  font-size: 30px;
+  font-size: 60px;
+  text-transform: uppercase;
+  font-weight: 700;
   letter-spacing: 3px;
-  color: #EB282E;
+  color: black;
   text-align: center;
 
 }
@@ -74,20 +83,83 @@ animation-duration: 1s;
   vertical-align: middle;
   width: 33%;
   overflow: scroll;
-
-  font-family: 'Englebert', sans-serif;
-  font-size: 24px;
+  text-align: justify;
+  font-size: 1.25rem;
   line-height: 1.25em;
 }
 
+.li {
+  list-style: none;
+}
+
 .joke {
-  font-family: 'Englebert', sans-serif;
   width: 25%;
   margin-left: 45%;
   margin-top: 15%;
 }
 
+button, .button, input, .user-list {
+  display: inline-block;
+  height: 38px;
+  padding: 0 10px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+}
+button, .button, input {
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box;
+  /*button code adapted from Skeleton*/
+}
 
+.user-list, a.user-list {
+  font-size: 14px;
+  text-decoration: none;
+  text-align: left;
+}
+
+a.user-list {
+  padding: 0;
+  color: #555;
+}
+
+a.user-list:hover{
+  color: #30bdbf;
+  font-weight: bold;
+}
+
+#joke-count {
+  text-align: center;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.menu-button {
+  width: 90px;
+  margin: 5px;
+}
+
+button:hover, .menu-button:hover {
+  box-shadow: 0 0 10px #75ccdd;
+}
+
+/*----------------- LOGIN/REGISTER CSS --------------------*/
+.session {
+  display: block;
+}
+.centerText {
+
+}
+/*---------------------------------------------------------*/
 
 
 @keyframes title {
@@ -137,13 +209,13 @@ animation-duration: 1s;
 
 @media (max-width: 400px) {
   .title {
-    font-family: 'Englebert', sans-serif;
+
     font-size: 18px;
     color: black;
     text-shadow: none;
   }
   .subtitle {
-    font-family: 'Raleway', sans-serif;
+
     font-size: 12px;
     letter-spacing: normal;
     color: black;
@@ -155,7 +227,7 @@ animation-duration: 1s;
     display: none;
   }
   .joke-box {
-    font-family: 'Raleway', sans-serif;
+
     font-size: 1rem;
     width: 100%;
     position: relative;
@@ -180,7 +252,7 @@ animation-duration: 1s;
     font-size: 30px;
   }
   .joke-box {
-    font-family: 'Raleway', sans-serif;
+
     font-size: 1rem;
     width: 50%;
     top: 10%;

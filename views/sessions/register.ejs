@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>Register New User</title>
+    <% include ../partials/head.ejs %>
   </head>
   <body>
-    <h1>New User</h1>
+    <% include ../partials/nav.ejs %>
+    <div class="centerText">
+      <h1>New User</h1>
 
-    <% if (passwordFail === true) { %>
-      <p>Passwords do not match.  Please try again.</p>
-    <% } %>
-        <form action="/users/register" method="POST">
-          First Name: <input type="text" name="firstName" value="<%=firstInput%>"><br/>
-          Last Name: <input type="text" name="lastName" value="<%=lastInput%>"><br/>
-          Username: <input type="text" name="username" value="<%=usernameInput%>"><br/>
-          Password: <input type="password" name="password"><br/>
-          Verify Password: <input type="password" name="password2"><br/>
-          <input type="submit" value="Create User">
-        </form>
+      <% if (passwordFail === true) { %>
+        <p>Passwords do not match.  Please try again.</p>
+      <% } %>
+          <form action="/users/register" method="POST">
+            First Name: <input type="text" name="firstName" value="<%=firstInput%>"><br/>
+            Last Name: <input type="text" name="lastName" value="<%=lastInput%>"><br/>
+            Username: <input type="text" name="username" value="<%=usernameInput%>"><br/>
+            Password: <input type="password" name="password"><br/>
+            Verify Password: <input type="password" name="password2"><br/>
+            <input type="submit" value="Create User">
+          </form></br></br>
+
+          <a href="/">Back home for more dad jokes</a>
+    </div>
 
   </body>
 </html>

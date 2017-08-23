@@ -43,13 +43,18 @@ router.get('/listall', (req,res)=>{
   })
 })
 
-//View individual user page (have to check)
+//View individual user page
 router.get('/:id', (req,res)=>{
   if(req.session.logged){
     User.findById(req.params.id, (error,foundUser)=>{
+      //If foundUser.userName = req.session.username, send the user to his own page instead.
+      if (foundUser.userName === req.session.username) {
+        res.redirect('/session/home');
+      } else {
       res.render('users/show.ejs', {
         user: foundUser
-      })
+        })
+      }
     })
   } else {
     res.redirect('/session/login')

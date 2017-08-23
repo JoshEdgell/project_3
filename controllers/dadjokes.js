@@ -19,6 +19,7 @@ router.get('/listall', (req,res)=>{
 
 //Add joke to favorites
 router.post('/favorite', (req,res)=>{
+  console.log(req.body);
   if (req.session.logged) {
     User.findOne({'userName' : req.session.username}, (error,foundUser)=>{
       foundUser.favoriteJokes.push(req.body);
@@ -41,7 +42,15 @@ router.get('/:id', (req,res)=>{
 //New Joke
 router.post('/', (req,res)=>{
   jokes.create(req.body, (error, newJoke)=>{
-    res.json(newJoke);
+    User.findOne({'userName' : req.session.username} , (error, foundUser)=>{
+      foundUser.createdJokes.push(newJoke);
+      foundUser.save((error,data)=>{
+        res.json(newJoke);
+      })
+      // console.log(foundUser.createdJokes, 'created jokes');
+      // console.log(foundUser);
+      // res.json(newJoke);
+    })
   })
 });
 

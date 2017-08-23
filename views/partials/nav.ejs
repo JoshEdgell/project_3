@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<html ng-app="DadJokes">
-<head>
-  <meta charset="utf-8">
-  <title>Dad Humor</title>
-  <!-- Angular -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-  <!-- JS -->
-  <script src="/js/app.js"></script>
-  <!--Fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Quicksand|Bangers" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!--CSS-->
-  <link rel="stylesheet" href="/css/main.css" />
-</head>
-<body ng-controller="MainController as ctrl" class="indexBody">
-  <nav>
-    <!-- Dad Image -->
-    <img class="dad" src="/img/0-01.png" alt="dad"/>
-    <br>
-    <div class="nav-text">
+<nav>
+  <!-- Dad Image -->
+  <img class="dad" src="/img/0-01.png" alt="dad"/>
+  <br>
+  <div class="nav-text">
     <!-- GET A COUNT OF JOKES IN OUR JOKE MODEL -->
     <p id="joke-count">We have <b>{{ctrl.jokeCount}}</b> jokes to choose from!</p>
     <br><br>
@@ -56,28 +40,4 @@
 
 
   </div>
-
-  </nav>
-
-
-  <div class="container">
-    <h1 class="title">The Dad Joke Factory</h1>
-    <h3 class="subtitle">The Mother of All Dad Jokes</h3>
-    <img src="/img/160526_Back-01.jpg" alt="background" class="main-img"/>
-
-
-    <div class="joke-box">
-
-      {{ctrl.jokes.joke}}
-      <br>
-      <i class="fa fa-star" ng-click="ctrl.addToFavorites(ctrl.jokes.id , ctrl.jokes.joke);"></i>
-      <br><br>
-      <ul><li ng-repeat="result in ctrl.searchResult track by $index">{{result.joke}}</li></ul>
-
-    </div>
-
-
-
-  </body>
-
-  </html>
+</nav>
