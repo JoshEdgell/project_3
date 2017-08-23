@@ -71,13 +71,6 @@ app.controller('MainController', ['$http', function($http){
     );
   };
 
-
-
-
-
-
-
-
   //Request to get a count of all the jokes in our database
   this.countJokes = function(){
     $http({
@@ -89,12 +82,6 @@ app.controller('MainController', ['$http', function($http){
         console.log(error);
     });
   };
-
-
-
-
-
-
 
   //Get a count of all the jokes on the API
   this.countAPI = function(){
@@ -111,11 +98,6 @@ app.controller('MainController', ['$http', function($http){
     )
   };
 
-
-
-
-
-
   //Count of all jokes on both APIs
   this.getRandomJoke = function(){
     this.totalJokeCount = Number(this.jokeCount) + Number(this.apiJokeCount);
@@ -128,12 +110,6 @@ app.controller('MainController', ['$http', function($http){
       this.getJokes();
     }
   };
-
-
-
-
-
-
 
   //Request to get all jokes in our database
   this.getAllJokes = function(){
