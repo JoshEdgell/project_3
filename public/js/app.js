@@ -210,6 +210,9 @@ app.controller('MainController', ['$http', function($http){
       console.log(error);
     })
   };
+  this.randomDad = function(){
+
+  };
   this.getJokes(); //callback to get jokes on page load
   this.getAllJokes();
   this.getAllUsers();
