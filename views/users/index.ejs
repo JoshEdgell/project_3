@@ -5,6 +5,8 @@
 </head>
 <body ng-controller="MainController as ctrl">
   <% include ../partials/nav.ejs %>
+  <div class="container">
+
   <%# Basic information%>
   <h2>Profile: <%= user.userName %></h2>
   <h3><u>Name</u></h3>
@@ -20,8 +22,8 @@
   </div>
 
   <%# Favorite Jokes box%>
-  <div>
-    <h3><u>Favorite Jokes:</u></h3>
+  <div class="form">
+    <h3 class="ejs-title-user">Favorite Jokes</h3>
     <ul>
       <% for (let i = 0; i < user.favoriteJokes.length; i++){ %>
         <li>
@@ -51,6 +53,6 @@
       <% } %>
     </ul>
   </div>
-
+</div>
 </body>
 </html>
