@@ -76,7 +76,11 @@
       </div>
 
       <div class="ctrl.showSearch">
-        <ul><li ng-repeat="result in ctrl.searchResult track by $index">{{result.joke}}</li></ul>
+
+        <ul><li ng-repeat="result in ctrl.searchResult track by $index">{{result.joke}}
+          <i class="fa fa-star-o" title="Add to Favorites" ng-click="ctrl.addToFavorites(ctrl.jokes.id , ctrl.jokes.joke);" ng-if="ctrl.showEmpty"></i>
+          <i class="fa fa-star" ng-if="ctrl.showStar"></i>
+        </li></ul>
       </div>
     </div>
 
