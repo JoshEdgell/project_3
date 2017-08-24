@@ -94,8 +94,8 @@ animation-duration: .75s;
   margin-top: 20%;
   vertical-align: middle;
   width: 33%;
-  overflow: scroll;
-  text-align: justify;
+  overflow: auto;
+  text-align: center;
   font-size: 1.25rem;
   line-height: 1.25em;
 }
