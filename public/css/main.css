@@ -44,6 +44,7 @@ b {
   left: 0;
 }
 
+
 .fa.fa-star, .fa.fa-star-o {
   font-size: 28px;
   color: #FCCE4E;
@@ -125,7 +126,7 @@ button, .button, input, .user-list, .new-joke {
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  background-color: transparent;
+  background-color: white;
 }
 button, .button, input {
   color: #555;
