@@ -1,40 +1,29 @@
 <!DOCTYPE html>
 <html ng-app="DadJokes">
-  <head>
-    <% include ../partials/head.ejs %>
-  </head>
-  <body ng-controller="MainController as ctrl">
-    <% include ../partials/nav.ejs %>
-    <div class="container">
-    
-    <h3><u>Jokes <%=user.firstName%> <%=user.lastName%> has created</u></h3>
-      <ul>
-        <% for (let i = 0; i < user.createdJokes.length; i++) { %>
-          <li><%=user.createdJokes[i].joke%></li>
+<head>
+  <% include ../partials/head.ejs %>
+</head>
+<body ng-controller="MainController as ctrl">
+  <% include ../partials/nav.ejs %>
+  <div class="container">
+    <div class="form">
+    <h3 class="ejs-title-user">Created by: <%=user.firstName%> <%=user.lastName%></h3>
+    <ul>
+      <% for (let i = 0; i < user.createdJokes.length; i++) { %>
+        <li><%=user.createdJokes[i].joke%></li>
         <% } %>
       </ul>
-
-
-    <h3><u><%=user.firstName%>'s Favorite Jokes:</u></h3>
-    <p ng-if="ctrl.poop">Show me</p>
-    <ul>
-      <% for (let i = 0; i < user.favoriteJokes.length; i++){ %>
-        <li><%= user.favoriteJokes[i].joke %></li>
-        // <!--Would like to add a 'Add to favorites' button right here, but having trouble passing joke text into the addToFavorites function -->
-      <% } %>
-    </ul>
-    <!-- REGISTER NEW USER -->
-    <a href="/users/register">New User</a></br>
-    <!--  END OF 'REGISTER NEW USER' -->
-    <!-- USER LOGIN -->
-    <a href="/session/login">Login</a></br>
-    <!-- END OF 'USER LOGIN'   -->
-    <!-- USER LOGOUT -->
-    <a href="/session/logout">Logout</a></br>
-    <!-- END OF USER LOGOUT -->
-    <!-- GO TO USER HOME -->
-    <a href="/session/home">My Home</a></br>
-    <!-- END OF USER HOME -->
-  </div>
-  </body>
-</html>
+    </div>
+      <div class="form">
+        <h3 class="ejs-title-user"><%=user.firstName%>'s Favorites:</h3>
+        <p ng-if="ctrl.poop">Show me</p>
+        <ul>
+          <% for (let i = 0; i < user.favoriteJokes.length; i++){ %>
+            <li><%= user.favoriteJokes[i].joke %></li>
+            // <!--Would like to add a 'Add to favorites' button right here, but having trouble passing joke text into the addToFavorites function -->
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </body>
+    </html>
