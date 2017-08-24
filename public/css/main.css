@@ -78,12 +78,18 @@ animation-duration: .75s;
 
 }
 
-.ejs-title {
+.ejs-title, .ejs-title-user {
   font-family: 'Bangers', cursive;
-  font-size: 50px;
   text-align: center;
 }
 
+.ejs-title {
+  font-size: 50px;
+}
+
+.ejs-title-user {
+  font-size: 40px;
+}
 .joke-box {
   margin: auto;
   margin-top: 20%;
