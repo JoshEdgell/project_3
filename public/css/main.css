@@ -43,13 +43,15 @@ b {
   left: 0;
 }
 
-.fa.fa-star {
+.fa.fa-star, .fa.fa-star-o {
   font-size: 28px;
   color: #FCCE4E;
   text-align: center;
+
 }
 .fa.fa-star:hover {
   font-size: 28px;
+  cursor: pointer;
 }
 
 /*Titles*/
