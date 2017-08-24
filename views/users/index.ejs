@@ -5,6 +5,8 @@
 </head>
 <body ng-controller="MainController as ctrl">
   <% include ../partials/nav.ejs %>
+  <div class="container">
+
   <%# Basic information%>
   <h2>Profile: <%= user.userName %></h2>
   <h3><u>Name</u></h3>
@@ -51,6 +53,6 @@
       <% } %>
     </ul>
   </div>
-
+</div>
 </body>
 </html>
