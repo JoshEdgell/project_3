@@ -9,15 +9,15 @@
 
     <%# Basic information%>
     <h2 class="title"><%= user.firstName %> <%=user.lastName%>'s Joke Factory</h2>
-
+    
     <%# Create a new joke box%>
-    <div class="form index-form">
+    <div class="form">
       <h3 class="ejs-title-user">Create a new joke</h3>
       <form class="new-joke" ng-submit="ctrl.createJoke()">
-        <center>
-          <textarea class="new-joke" type="text" ng-model="ctrl.jokeText"></textarea><br>
-          <input class="button" type="submit" ng-click="ctrl.randomDad();" value="Create Joke"/>
-        </center>
+
+        <textarea type="text" ng-model="ctrl.jokeText"></textarea><br>
+        <input class="button" type="submit" ng-click="ctrl.randomDad();" value="Create Joke"/>
+
       </form>
     </div>
 
