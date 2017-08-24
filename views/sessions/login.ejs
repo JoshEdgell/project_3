@@ -6,6 +6,7 @@
 <body ng-controller="MainController as ctrl">
   <% include ../partials/nav.ejs %>
   <div class="container">
+    <h1 class="title">The Dad Joke Factory</h1>
     <div class="form">
       <h3 class="ejs-title">User Login</h3>
 
@@ -15,15 +16,15 @@
 
         <form action="/session/login" method="POST">
           <div class="user-info">
-          Username: <input type="text" name="userName"><br>
-          Password: <input type="password" name="password"><br><br>
-          <input class="menu-button" type="submit" value="Login" ng-click="ctrl.randomDad();">
-        </div>
+            Username: <input type="text" name="userName"><br>
+            Password: <input type="password" name="password"><br><br>
+            <input class="menu-button" type="submit" value="Login" ng-click="ctrl.randomDad();">
+          </div>
         </form>
         <br>
-      Don't have an account?<br>
-      <a class="button menu-button" href="/users/register">Register</a>
-      <br><br>
+        Don't have an account?<br>
+        <a class="button menu-button" href="/users/register">Register</a>
+        <br><br>
 
       </div>
     </div>
