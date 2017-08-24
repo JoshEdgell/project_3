@@ -223,14 +223,12 @@ button:hover, .menu-button:hover {
 
 @media (max-width: 400px) {
   .title {
-
-    font-size: 18px;
+    font-size: 16px;
     color: black;
     text-shadow: none;
   }
-  .subtitle {
-
-    font-size: 12px;
+  .subtitle, h3.subtitle {
+    font-size: 18px;
     letter-spacing: normal;
     color: black;
   }
@@ -242,11 +240,12 @@ button:hover, .menu-button:hover {
     display: none;
   }
   .joke-box {
-
     font-size: 1rem;
     width: 100%;
     position: relative;
     display: block;
+    margin: auto;
+    margin-top: 0;
   }
   .dad {
     width: 100px;
@@ -256,7 +255,7 @@ button:hover, .menu-button:hover {
   }
   nav {
     font-size: 14px;
-    width: 100px
+    width: 100px;
   }
   .form {
     width: 100%;
@@ -307,6 +306,15 @@ button:hover, .menu-button:hover {
   .user-info {
     text-align: right;
     margin-right: 10%;
+  }
+}
+
+@media (max-width: 1080px) {
+  .title {
+    font-size: 50px;
+  }
+  .subtitle {
+    font-size: 20px;
   }
 }
 
