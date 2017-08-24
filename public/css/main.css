@@ -229,7 +229,7 @@ button:hover, .menu-button:hover {
   text-align: center;
 }
 ul {
-  list-style: none;
+  /*list-style: none;*/
   padding-bottom: 12px;
 }
 /*---------------------------------------------------------*/
