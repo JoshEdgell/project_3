@@ -70,8 +70,8 @@
 
       {{ctrl.jokes.joke}}
       <br>
-      <i class="fa fa-star-o"</i>
-      <i class="fa fa-star" title="Add to Favorites" ng-click="ctrl.addToFavorites(ctrl.jokes.id , ctrl.jokes.joke);"></i>
+      <i class="fa fa-star-o" title="Add to Favorites" ng-click="ctrl.addToFavorites(ctrl.jokes.id , ctrl.jokes.joke);"></i>
+      <i class="fa fa-star"></i>
       <br><br>
       <ul><li ng-repeat="result in ctrl.searchResult track by $index">{{result.joke}}</li></ul>
 
