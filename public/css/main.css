@@ -2,15 +2,11 @@
 border: 1px solid black;
 }*/
 
-
-
 body {
   font-family: 'Quicksand', sans-serif;
   background-color: white;
   display: flex
 }
-
-
 
 .container {
   width: 80%;
@@ -23,6 +19,8 @@ nav {
 b {
   font-size: 20px;
 }
+
+/*images*/
 
 .main-img {
   width: 80%;
@@ -107,26 +105,26 @@ b {
 .ejs-title-user {
   font-size: 40px;
 }
+
+
+/*Text */
 .joke-box {
   margin: auto;
   margin-top: 20%;
   vertical-align: middle;
-  width: 33%;
-  overflow: auto;
+  width: 35%;
+  height: 10rem;
+  overflow: scroll;
   text-align: center;
   font-size: 1.25rem;
-  line-height: 1.25em;
+  line-height: 1.5em;
 }
 
 .li {
   list-style: none;
 }
 
-.joke {
-  width: 25%;
-  margin-left: 45%;
-  margin-top: 15%;
-}
+
 
 /*Nav, Buttons, Forms*/
 
@@ -142,7 +140,7 @@ button, .button, input, .user-list, .new-joke {
   white-space: nowrap;
   background-color: white;
 }
-button, .button, input {
+button, .button, input, textarea {
   color: #555;
   text-align: center;
   font-size: 11px;
@@ -153,13 +151,14 @@ button, .button, input {
   /*button code adapted from Skeleton*/
 }
 
-.new-joke {
-  border-radius: 4px;
+textarea {
+  width: 100%;
+  height: 5rem;
 }
 
-textarea.new-joke {
-  width: 300px;
-  height: 250px;
+.new-joke {
+  width: 90%;
+  margin: auto;
 }
 
 .user-list, a.user-list {
@@ -197,19 +196,13 @@ button:hover, .menu-button:hover {
   width: 45%;
   text-align: left;
   margin: auto;
+  margin-top: 10%;
   line-height: 30px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.18), 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   /*box shadow from W3 Schools*/
 }
 
-.form {
-  margin-top: 30%;
-}
-
-.index-form {
-  margin-top: 10%;
-}
 .user-info {
   text-align: right;
   margin-right: 10%;
