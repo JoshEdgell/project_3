@@ -69,8 +69,6 @@
     <div class="joke-box">
       <div ng-if="ctrl.showJoke">
         {{ctrl.jokes.joke}}
-        <br>
-
         <i class="fa fa-star-o" title="Add to Favorites" ng-click="ctrl.addToFavorites(ctrl.jokes.id , ctrl.jokes.joke);" ng-if="ctrl.showEmpty"></i>
         <i class="fa fa-star" ng-if="ctrl.showStar"></i>
       </div>
