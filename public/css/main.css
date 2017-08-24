@@ -39,6 +39,7 @@ b {
   height: auto;
   display: block;
   position: static;
+  cursor: pointer;
   top: 0;
   left: 0;
 }
