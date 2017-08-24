@@ -13,7 +13,8 @@ app.controller('MainController', ['$http', function($http){
   this.apiJokeCount = 0; //counts all the jokes in the outside api
   this.totalJokeCount = 0; //counts all jokes in both databases
   this.allJokes = [];
-  this.showStar = true;
+  this.showEmpty = true;
+  this.showStar = false;
   //function to request one dad joke from API
   this.getJokes = function(){
     $http({
@@ -97,7 +98,8 @@ app.controller('MainController', ['$http', function($http){
 
   //Count of all jokes on both APIs
   this.getRandomJoke = function(){
-    this.showStar = true;
+    this.showStar = false;
+    this.showEmpty = true;
     this.totalJokeCount = Number(this.jokeCount) + Number(this.apiJokeCount);
     const userPercent = Number(this.jokeCount) / this.totalJokeCount;
     const random = Math.random();
@@ -189,7 +191,8 @@ app.controller('MainController', ['$http', function($http){
 
   //Add a joke to a user's favorites
   this.addToFavorites = function(id,joke){
-    this.showStar = false;
+    this.showStar = true;
+    this.showEmpty = false;
     $http({
       method: "POST",
       url: '/jokes/favorite',
