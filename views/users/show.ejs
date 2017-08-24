@@ -6,6 +6,7 @@
 <body ng-controller="MainController as ctrl">
   <% include ../partials/nav.ejs %>
   <div class="container">
+    <h1 class="title"><%=user.firstName%> <%=user.lastName%>'s Joke Factory</h1>
     <div class="form">
     <h3 class="ejs-title-user">Created by: <%=user.firstName%> <%=user.lastName%></h3>
     <ul>

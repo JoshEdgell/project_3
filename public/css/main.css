@@ -71,6 +71,20 @@ b {
   animation-duration: .75s;
 }
 
+.title2 {
+  font-family: 'Bangers', cursive;
+  letter-spacing: 3px;
+  color: #FCCE4E;
+  text-shadow: -1px 3px 5px #EB282E, 3px 3px 25px #EB282E, -1px 0 5px #EB282E;
+  font-size: 65px;
+  text-align: center;
+  margin-top: 0px;
+
+
+  animation: title2;
+  animation-duration: 1.5s;
+}
+
 .subtitle {
   font-size: 60px;
   text-transform: uppercase;
@@ -253,6 +267,75 @@ ul {
   }
 }
 
+@keyframes title2 {
+  0% {display: inline-block;
+    transform: scale(0);
+  }
+  5% {display: inline-block;
+    transform: scale(0);
+  }
+  10% {display: inline-block;
+    transform: scale(0);
+  }
+  15% {display: inline-block;
+    transform: scale(0);
+  }
+  20% {display: inline-block;
+    transform: scale(0);
+  }
+  25% {display: inline-block;
+    transform: scale(0);
+  }
+  30% {display: inline-block;
+    transform: scale(0);
+  }
+  35% {display: inline-block;
+    transform: scale(0);
+  }
+  40% {display: inline-block;
+    transform: scale(0);
+  }
+  45% {display: inline-block;
+    transform: scale(0);
+  }
+  50% {display: inline-block;
+    transform: scale(0);
+  }
+  55% {display: inline-block;
+    transform: scale(.5);
+  }
+  60% {display: inline-block;
+    transform: scale(1);
+  }
+  65% {display: inline-block;
+    transform: scale(1.25);
+  }
+  70% {display: inline-block;
+    transform: scale(1.5);
+  }
+  75% {display: inline-block;
+    transform: scale(1.75);
+  }
+  80% {display: inline-block;
+    transform: scale(2);
+  }
+  85% {display: inline-block;
+    transform: scale(1.75);
+  }
+  90% {display: inline-block;
+    transform: scale(1.5);
+  }
+  95% {display: inline-block;
+    transform: scale(1.25);
+  }
+  100% {display: inline-block;
+    transform: scale(1.25);
+  }
+  100% {display: inline-block;
+    transform: scale(1);
+  }
+}
+
 
 @media (max-width: 400px) {
   .title {
@@ -330,7 +413,7 @@ ul {
     text-align: left;
     margin: auto;
     line-height: 15px;
-    margin-top: 30%;
+    margin-top: 10%;
     padding: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.18), 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     /*box shadow from W3 Schools*/
