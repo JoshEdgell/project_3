@@ -1,7 +1,7 @@
 <nav>
   <!-- Dad Image -->
   <!-- Can src be ctrl.dadImage? -->
-  <a href="/"><img class="dad" src="/img/0-01.png" alt="dad" ng-click="ctrl.randomDad();"/></a>
+  <a href="/"><img class="dad" ng-src="{{ctrl.dadImage}}" alt="dad" ng-click="ctrl.randomDad();"/></a>
   <br>
   <div class="nav-text">
     <!-- GET A COUNT OF JOKES IN OUR JOKE MODEL -->
@@ -9,22 +9,22 @@
     <br><br>
 
     <!-- REGISTER NEW USER -->
-    <a href="/users/register" class="button menu-button">New User</a></br>
+    <a href="/users/register" class="button menu-button" ng-click="ctrl.randomDad();">New User</a></br>
     <!--  END OF 'REGISTER NEW USER' -->
     <!-- USER LOGIN -->
-    <a href="/session/login" class="button menu-button">Login</a></br>
+    <a href="/session/login" class="button menu-button" ng-click="ctrl.randomDad();">Login</a></br>
     <!-- END OF 'USER LOGIN'   -->
     <!-- USER LOGOUT -->
-    <a href="/session/logout" class="button menu-button">Logout</a></br>
+    <a href="/session/logout" class="button menu-button" ng-click="ctrl.randomDad();">Logout</a></br>
     <!-- END OF USER LOGOUT -->
     <!-- GO TO USER HOME -->
-    <a href="/session/home" class="button menu-button">My Home</a></br>
+    <a href="/session/home" class="button menu-button" ng-click="ctrl.randomDad();">My Home</a></br>
     <!-- END OF USER HOME -->
 
     <!-- LIST OF ALL USERS -->
     <h4 class="user-list">All Users</h4>
     <ul style="padding: 0px; margin: 0px">
-      <li class="user-list" ng-repeat="user in ctrl.allUsers"><a class="user-list" href="/users/{{user._id}}">{{user.firstName}} {{user.lastName}}</a></li>
+      <li class="user-list" ng-repeat="user in ctrl.allUsers"><a class="user-list" href="/users/{{user._id}}" ng-click="ctrl.randomDad();">{{user.firstName}} {{user.lastName}}</a></li>
     </ul>
     <!-- END OF LIST OF USERS -->
 
