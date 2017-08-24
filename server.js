@@ -28,6 +28,8 @@ const sessionController = require('./controllers/session.js');
 app.use('/session', sessionController);
 const seedController = require('./controllers/seed.js');
 app.use('/seed', seedController);
+const adminController = require('./controllers/admin.js');
+app.use('/admin', adminController);
 
 app.get('/', (req,res)=>{
   res.render(index.html);
