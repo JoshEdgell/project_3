@@ -228,43 +228,32 @@ ul {
   }
 }
 
-@media (max-width: 1280px){
-  .dad {
-    width: 150px;
-    height: auto;
-    top: 65%;
-    left: 57%;
-  }
-  .subtitle {
-    font-size: 18px;
-  }
-}
 
 @media (max-width: 400px) {
   .title {
-
-    font-size: 18px;
+    font-size: 16px;
     color: black;
     text-shadow: none;
   }
-  .subtitle {
-
-    font-size: 12px;
+  .subtitle, h3.subtitle {
+    font-size: 18px;
     letter-spacing: normal;
     color: black;
   }
   body {
     background-color: white;
   }
+
   .main-img {
     display: none;
   }
   .joke-box {
-
     font-size: 1rem;
     width: 100%;
     position: relative;
     display: block;
+    margin: auto;
+    margin-top: 0;
   }
   .dad {
     width: 100px;
@@ -274,12 +263,30 @@ ul {
   }
   nav {
     font-size: 14px;
+    width: 100px;
+  }
+  .form {
+    width: 100%;
+    text-align: left;
+    margin: 0;
+    font-size: 12px;
+    line-height: 10px;
+    margin-top: 10%;
+    padding: 0px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.18), 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*box shadow from W3 Schools*/
+  }
+
+  .user-info {
+    text-align: right;
+    margin-right: 10%;
   }
 }
 
-@media (max-width: 600px) {
+
+@media (max-width: 640px) {
   body {
-    background-color: #fefdea;
+
   }
   .title {
     font-size: 30px;
@@ -289,5 +296,41 @@ ul {
     font-size: 1rem;
     width: 50%;
     top: 10%;
+  }
+  .ejs-title {
+    font-size: 40px;
+  }
+  .form {
+    width: 45%;
+    text-align: left;
+    margin: auto;
+    line-height: 15px;
+    margin-top: 30%;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.18), 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*box shadow from W3 Schools*/
+  }
+
+  .user-info {
+    text-align: right;
+    margin-right: 10%;
+  }
+}
+
+@media (max-width: 1080px) {
+  .title {
+    font-size: 50px;
+  }
+  .subtitle {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .form {
+    margin-top: 10%;
+  }
+  .subtitle {
+    font-size: 40px;
   }
 }
