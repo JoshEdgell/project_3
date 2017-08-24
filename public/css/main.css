@@ -195,19 +195,13 @@ button:hover, .menu-button:hover {
   width: 45%;
   text-align: left;
   margin: auto;
+  margin-top: 10%;
   line-height: 30px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.18), 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   /*box shadow from W3 Schools*/
 }
 
-.form {
-  margin-top: 30%;
-}
-
-.index-form {
-  margin-top: 10%;
-}
 .user-info {
   text-align: right;
   margin-right: 10%;
