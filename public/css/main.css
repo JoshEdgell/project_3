@@ -188,10 +188,18 @@ button:hover, .menu-button:hover {
   display: block;
 }
 .centerText {
-
+  text-align: center;
 }
 /*---------------------------------------------------------*/
-
+/*---------------------INDEX/SHOW.EJS----------------------*/
+.centerText {
+  text-align: center;
+}
+ul {
+  list-style: none;
+  padding-bottom: 12px;
+}
+/*---------------------------------------------------------*/
 
 @keyframes title {
   0% {display: inline-block;

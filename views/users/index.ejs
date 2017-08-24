@@ -35,7 +35,7 @@
   <%# "My Jokes" box%>
   <div>
     <h3><u>My Jokes: </u></h3>
-    user.
+    <%= user.createdJokes %>
     <ul>
       <% for (let i = 0; i < user.createdJokes.length; i++){ %>
         <li>
@@ -51,12 +51,6 @@
       <% } %>
     </ul>
   </div>
-
-  <%# Links to return or login/out%>
-  <a href="/users/register">New User</a></br>
-  <a href="/session/login">Login</a></br>
-  <a href="/session/logout">Logout</a></br>
-  <a href="/">Main Page</a>
 
 </body>
 </html>
