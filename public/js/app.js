@@ -15,6 +15,7 @@ app.controller('MainController', ['$http', function($http){
   this.allJokes = [];
   this.showEmpty = true;
   this.showStar = false;
+  this.dadImage = '/img/0-01.png';
   //function to request one dad joke from API
   this.getJokes = function(){
     $http({
@@ -33,6 +34,7 @@ app.controller('MainController', ['$http', function($http){
 
   //search jokes
  this.searchJokes = function(searchBox){
+   this.randomDad();
    $http({
      method: 'get',
      url: 'https://icanhazdadjoke.com/search?term=' + searchBox,
@@ -98,6 +100,7 @@ app.controller('MainController', ['$http', function($http){
 
   //Count of all jokes on both APIs
   this.getRandomJoke = function(){
+    this.randomDad();
     this.showStar = false;
     this.showEmpty = true;
     this.totalJokeCount = Number(this.jokeCount) + Number(this.apiJokeCount);
@@ -211,11 +214,20 @@ app.controller('MainController', ['$http', function($http){
     })
   };
   this.randomDad = function(){
-
+    const random = Math.floor(Math.random()* 21 + 1);
+      let dadNumber
+    if (random < 10 ) {
+      dadNumber = '/img/0-0' + random + '.png';
+    } else {
+      dadNumber = '/img/0-' + random + '.png';
+    }
+    this.dadImage = dadNumber;
+    console.log(this.dadImage, 'dad image');
   };
   this.getJokes(); //callback to get jokes on page load
   this.getAllJokes();
   this.getAllUsers();
   this.countAPI();
   this.countJokes();
+  this.randomDad();
 }]); //end of controller

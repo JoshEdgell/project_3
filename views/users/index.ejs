@@ -16,7 +16,7 @@
       <form class="new-joke" ng-submit="ctrl.createJoke()">
         <center>
           <textarea class="new-joke" type="text" ng-model="ctrl.jokeText"></textarea><br>
-          <input class="button" type="submit" value="Create Joke"/>
+          <input class="button" type="submit" ng-click="ctrl.randomDad();" value="Create Joke"/>
         </center>
       </form>
     </div>
@@ -43,12 +43,6 @@
             <li>
             <% let thisJoke = user.createdJokes[i].joke %>
             <p><%= thisJoke %></p>
-            <button ng-click="ctrl.toggleEditForm()">Edit</button>
-            <button ng-click="ctrl.deleteJoke(thisJoke._id)">Delete</button>
-            <form ng-if="ctrl.seeEditForm" ng-submit="ctrl.updateJoke(thisJoke)">
-            <input type="text" ng-model="" />
-            <input type="submit" value="Update" />
-            </form>
             </li>
             <% } %>
           </ul>
