@@ -15,6 +15,8 @@ app.controller('MainController', ['$http', function($http){
   this.allJokes = [];
   this.showEmpty = true;
   this.showStar = false;
+  this.showJoke = true;
+  this.showSearch = false;
   this.dadImage = '/img/0-01.png';
   //function to request one dad joke from API
   this.getJokes = function(){
@@ -34,6 +36,8 @@ app.controller('MainController', ['$http', function($http){
 
   //search jokes
  this.searchJokes = function(searchBox){
+   this.showSearch = true;
+   this.showJoke = false;
    this.randomDad();
    $http({
      method: 'get',
@@ -98,8 +102,11 @@ app.controller('MainController', ['$http', function($http){
     )
   };
 
-  //Count of all jokes on both APIs
+  //Get a joke from either database
   this.getRandomJoke = function(){
+    this.showJoke = true;
+    this.showSearch = false;
+    controller.searchResult = [];
     this.randomDad();
     this.showStar = false;
     this.showEmpty = true;
@@ -222,7 +229,6 @@ app.controller('MainController', ['$http', function($http){
       dadNumber = '/img/0-' + random + '.png';
     }
     this.dadImage = dadNumber;
-    console.log(this.dadImage, 'dad image');
   };
   this.getJokes(); //callback to get jokes on page load
   this.getAllJokes();

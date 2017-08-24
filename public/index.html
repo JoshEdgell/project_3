@@ -67,16 +67,17 @@
 
 
     <div class="joke-box">
+      <div ng-if="ctrl.showJoke">
+        {{ctrl.jokes.joke}}
+        <br>
 
-      {{ctrl.jokes.joke}}
-      <br>
+        <i class="fa fa-star-o" title="Add to Favorites" ng-click="ctrl.addToFavorites(ctrl.jokes.id , ctrl.jokes.joke);" ng-if="ctrl.showEmpty"></i>
+        <i class="fa fa-star" ng-if="ctrl.showStar"></i>
+      </div>
 
-      <i class="fa fa-star-o" title="Add to Favorites" ng-click="ctrl.addToFavorites(ctrl.jokes.id , ctrl.jokes.joke);" ng-if="ctrl.showEmpty"></i>
-      <i class="fa fa-star" ng-if="ctrl.showStar"></i>
-
-      <br><br>
-      <ul><li ng-repeat="result in ctrl.searchResult track by $index">{{result.joke}}</li></ul>
-
+      <div class="ctrl.showSearch">
+        <ul><li ng-repeat="result in ctrl.searchResult track by $index">{{result.joke}}</li></ul>
+      </div>
     </div>
 
 
