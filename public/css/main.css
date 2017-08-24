@@ -1,5 +1,5 @@
 /** {
-  border: 1px solid black;
+border: 1px solid black;
 }*/
 
 
@@ -39,32 +39,36 @@ b {
   height: auto;
   display: block;
   position: static;
+  cursor: pointer;
   top: 0;
   left: 0;
 }
 
-.fa.fa-star {
+
+.fa.fa-star, .fa.fa-star-o {
   font-size: 28px;
   color: #FCCE4E;
   text-align: center;
+
 }
 .fa.fa-star:hover {
   font-size: 28px;
+  cursor: pointer;
 }
 
 /*Titles*/
 .title {
-font-family: 'Bangers', cursive;
-letter-spacing: 3px;
-color: #FCCE4E;
-text-shadow: -1px 3px 5px #EB282E, 3px 3px 25px #EB282E, -1px 0 5px #EB282E;
-font-size: 65px;
-text-align: center;
-margin-top: 0px;
+  font-family: 'Bangers', cursive;
+  letter-spacing: 3px;
+  color: #FCCE4E;
+  text-shadow: -1px 3px 5px #EB282E, 3px 3px 25px #EB282E, -1px 0 5px #EB282E;
+  font-size: 65px;
+  text-align: center;
+  margin-top: 0px;
 
 
-animation: title;
-animation-duration: .75s;
+  animation: title;
+  animation-duration: .75s;
 }
 
 .subtitle {
@@ -77,12 +81,18 @@ animation-duration: .75s;
 
 }
 
-.ejs-title {
+.ejs-title, .ejs-title-user {
   font-family: 'Bangers', cursive;
-  font-size: 50px;
   text-align: center;
 }
 
+.ejs-title {
+  font-size: 50px;
+}
+
+.ejs-title-user {
+  font-size: 40px;
+}
 .joke-box {
   margin: auto;
   margin-top: 20%;
@@ -106,7 +116,7 @@ animation-duration: .75s;
 
 /*Nav, Buttons, Forms*/
 
-button, .button, input, .user-list {
+button, .button, input, .user-list, .new-joke {
   display: inline-block;
   height: 38px;
   padding: 0 10px;
@@ -116,7 +126,7 @@ button, .button, input, .user-list {
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  background-color: transparent;
+  background-color: white;
 }
 button, .button, input {
   color: #555;
@@ -127,6 +137,15 @@ button, .button, input {
   cursor: pointer;
   box-sizing: border-box;
   /*button code adapted from Skeleton*/
+}
+
+.new-joke {
+  border-radius: 4px;
+}
+
+textarea.new-joke {
+  width: 300px;
+  height: 250px;
 }
 
 .user-list, a.user-list {
@@ -160,17 +179,23 @@ button:hover, .menu-button:hover {
   box-shadow: 0 0 10px #75ccdd;
 }
 
-.form {
+.form, .index-form {
   width: 45%;
   text-align: left;
   margin: auto;
   line-height: 30px;
-  margin-top: 30%;
   padding: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.18), 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   /*box shadow from W3 Schools*/
 }
 
+.form {
+  margin-top: 30%;
+}
+
+.index-form {
+  margin-top: 10%;
+}
 .user-info {
   text-align: right;
   margin-right: 10%;

@@ -5,52 +5,56 @@
 </head>
 <body ng-controller="MainController as ctrl">
   <% include ../partials/nav.ejs %>
-  <%# Basic information%>
-  <h2>Profile: <%= user.userName %></h2>
-  <h3><u>Name</u></h3>
-  <p><%= user.firstName %> <%= user.lastName %></p>
+  <div class="container">
 
-  <%# Create a new joke box%>
-  <div>
-    <p>Create a new joke:</p>
-    <form ng-submit="ctrl.createJoke()">
-      <textarea type="text" ng-model="ctrl.jokeText"></textarea>
-      <input type="submit" value="Create Joke"/>
-    </form>
-  </div>
+    <%# Basic information%>
+    <h2 class="title"><%= user.userName %>'s Joke Factory</h2>
 
-  <%# Favorite Jokes box%>
-  <div>
-    <h3><u>Favorite Jokes:</u></h3>
-    <ul>
-      <% for (let i = 0; i < user.favoriteJokes.length; i++){ %>
-        <li>
+    <p><%= user.firstName %> <%= user.lastName %></p>
+
+    <%# Create a new joke box%>
+    <div class="form index-form">
+      <h3 class="ejs-title-user">Create a new joke</h3>
+      <form class="new-joke" ng-submit="ctrl.createJoke()">
+        <center>
+          <textarea class="new-joke" type="text" ng-model="ctrl.jokeText"></textarea><br>
+          <input class="button" type="submit" value="Create Joke"/>
+        </center>
+      </form>
+    </div>
+
+    <%# Favorite Jokes box%>
+    <div class="form index-form">
+      <h3 class="ejs-title-user">Favorite Jokes</h3>
+      <ul>
+        <% for (let i = 0; i < user.favoriteJokes.length; i++){ %>
+          <li>
           <% let thisJoke = user.favoriteJokes[i].joke %>
           <p><%= thisJoke %></p>
-        </li>
-      <% } %>
-    </ul>
-  </div>
+          </li>
+          <% } %>
+        </ul>
+      </div>
 
-  <%# "My Jokes" box%>
-  <div>
-    <h3><u>My Jokes: </u></h3>
-    <%= user.createdJokes %>
-    <ul>
-      <% for (let i = 0; i < user.createdJokes.length; i++){ %>
-        <li>
-          <% let thisJoke = user.createdJokes[i].joke %>
-          <p><%= thisJoke %></p>
-          <button ng-click="ctrl.toggleEditForm()">Edit</button>
-          <button ng-click="ctrl.deleteJoke(thisJoke._id)">Delete</button>
-          <form ng-if="ctrl.seeEditForm" ng-submit="ctrl.updateJoke(thisJoke)">
+      <%# "My Jokes" box%>
+      <div class="form index-form">
+        <h3 class="ejs-title-user">My Jokes</h3>
+        <%= user.createdJokes %>
+        <ul>
+          <% for (let i = 0; i < user.createdJokes.length; i++){ %>
+            <li>
+            <% let thisJoke = user.createdJokes[i].joke %>
+            <p><%= thisJoke %></p>
+            <button ng-click="ctrl.toggleEditForm()">Edit</button>
+            <button ng-click="ctrl.deleteJoke(thisJoke._id)">Delete</button>
+            <form ng-if="ctrl.seeEditForm" ng-submit="ctrl.updateJoke(thisJoke)">
             <input type="text" ng-model="" />
             <input type="submit" value="Update" />
-          </form>
-        </li>
-      <% } %>
-    </ul>
-  </div>
-
-</body>
-</html>
+            </form>
+            </li>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </body>
+    </html>
