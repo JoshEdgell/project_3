@@ -5,8 +5,8 @@
   </head>
   <body ng-controller="MainController as ctrl">
     <% include ../partials/nav.ejs %>
-    <div class="container">
-    <h3><u>Jokes <%=user.firstName%> <%=user.lastName%> has created</u></h3>
+    <div class="centerText">
+    <h3>Jokes <%=user.firstName%> <%=user.lastName%> has created</h3>
       <ul>
         <% for (let i = 0; i < user.createdJokes.length; i++) { %>
           <li><%=user.createdJokes[i].joke%></li>
