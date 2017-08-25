@@ -194,6 +194,7 @@ button:hover, .menu-button:hover {
 
 .form, .index-form {
   width: 45%;
+  min-width: 178.05px;
   text-align: left;
   margin: auto;
   margin-top: 10%;
@@ -330,17 +331,11 @@ ul {
 }
 
 
-@media (max-width: 400px) {
+@media (max-width: 640px) {
   .title {
-    font-size: 16px;
-    color: black;
-    text-shadow: none;
+    font-size: 3rem;
   }
-  .subtitle, h3.subtitle {
-    font-size: 18px;
-    letter-spacing: normal;
-    color: black;
-  }
+
   body {
     background-color: white;
   }
@@ -382,32 +377,41 @@ ul {
     text-align: right;
     margin-right: 10%;
   }
+
 }
 
-
-@media (max-width: 640px) {
-  body {
-
-  }
+@media (max-width: 850px) {
   .title {
-    font-size: 30px;
+    font-size: 50px;
   }
-  .joke-box {
 
-    font-size: 1rem;
-    width: 50%;
-    top: 10%;
+  .subtitle {
+    font-size: 14px;;
   }
-  .ejs-title {
-    font-size: 40px;
+
+  #random, #search {
+    letter-spacing: normal;
+    width: 90%;
+  }
+
+  .dad {
+    width: 150px;
+    height: auto;
+    display: block;
+    top: 30%;
+  }
+  nav {
+    font-size: 14px;
+    width: 150px;
   }
   .form {
-    width: 45%;
+    width: 100%;
     text-align: left;
-    margin: auto;
-    line-height: 15px;
+    margin: 0;
+    font-size: 12px;
+    line-height: 10px;
     margin-top: 10%;
-    padding: 15px;
+    padding: 0px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.18), 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     /*box shadow from W3 Schools*/
   }
@@ -416,15 +420,7 @@ ul {
     text-align: right;
     margin-right: 10%;
   }
-}
 
-@media (max-width: 1080px) {
-  .title {
-    font-size: 50px;
-  }
-  .subtitle {
-    font-size: 20px;
-  }
 }
 
 @media (max-width: 1280px) {
